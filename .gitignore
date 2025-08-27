@@ -1,0 +1,8 @@
+# virtual env
+.venv/
+# local vector database
+data/index/
+# OS/editor noise
+.DS_Store
+.idea/
+.vscode/
