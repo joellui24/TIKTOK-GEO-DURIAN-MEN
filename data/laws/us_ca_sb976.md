@@ -1,0 +1,86 @@
+# California SB976 - Protecting Our Kids from Social Media Addiction Act
+
+**Jurisdiction:** California, United States  
+**Law ID:** California SB976  
+**Effective Date:** 2024  
+**Source:** California Legislature  
+
+## Key Provisions
+
+### Section 22675 - Default Settings for Minors
+
+**Algorithmic Feeds Restriction:**
+- Social media platforms must disable algorithmic or personalized feeds by default for users under 18
+- Chronological feed must be the default display option
+- Parental consent required to enable personalized feeds for minors
+
+**Time-Based Restrictions:**
+- Platforms must provide time management tools for minor users
+- Daily time limits must be easily configurable by parents
+- Notification systems to alert when limits are approached
+
+**Notification Controls:**
+- Push notifications to minors restricted during nighttime hours (10 PM - 6 AM)
+- Parents can configure notification schedules
+- Educational content notifications exempt from restrictions
+
+### Section 22676 - Parental Controls
+
+**Account Oversight:**
+- Parents must have access to privacy settings controls
+- Ability to view and modify minor's account safety settings
+- Regular reports on minor's platform usage patterns
+
+**Content Filtering:**
+- Parental ability to restrict certain content categories
+- Age-appropriate content verification systems
+- Reporting mechanisms for inappropriate content exposure
+
+### Section 22677 - Platform Obligations
+
+**Age Verification:**
+- Reasonable age verification methods required
+- Cannot rely solely on self-reported age for users under 18
+- Multiple verification touchpoints throughout user journey
+
+**Compliance Reporting:**
+- Quarterly reports on minor user safety measures
+- Data on parental control feature usage
+- Effectiveness metrics for safety implementations
+
+**Geographic Scope:**
+- Applies to users located in California
+- Geo-location verification required for compliance determination
+- Interstate commerce considerations for multi-state users
+
+### Section 22678 - Enforcement
+
+**Civil Penalties:**
+- Violations subject to civil penalty up to $5,000 per affected minor
+- Pattern violations may result in higher penalties
+- Attorney General enforcement authority
+
+**Private Right of Action:**
+- Parents may bring civil action for violations
+- Damages include actual harm plus statutory damages
+- Injunctive relief available
+
+## Implementation Requirements
+
+**Technical Implementation:**
+- Geographic detection systems required
+- Age verification at account creation and periodically
+- Parental consent verification systems
+- Default setting enforcement mechanisms
+
+**Compliance Timeline:**
+- 180 days from effective date for initial compliance
+- Ongoing monitoring and adjustment requirements
+- Regular safety assessment updates
+
+**Documentation Requirements:**
+- Maintain records of compliance measures
+- Document age verification processes
+- Track parental consent and control usage
+
+This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.

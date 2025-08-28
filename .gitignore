@@ -2,6 +2,11 @@
 .venv/
 # local vector database
 data/index/
+# API keys and secrets
+.env
+.env.local
+config/secrets.json
+
 # OS/editor noise
 .DS_Store
 .idea/

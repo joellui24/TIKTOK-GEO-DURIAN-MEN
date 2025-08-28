@@ -1,5 +1,7 @@
 {
-  "eu_dsa.md":        { "doc_id": "eu-dsa-2024" },
-  "us_fl_hb3.md":     { "doc_id": "us-fl-hb3-2024" },
-  "us_18usc_2258a.md":{ "doc_id": "us-18usc-2258a" }
+  "eu_dsa.md":              { "doc_id": "eu-dsa-2024" },
+  "us_fl_hb3.md":           { "doc_id": "us-fl-hb3-2024" },
+  "us_18usc_2258a.md":      { "doc_id": "us-18usc-2258a" },
+  "us_ca_sb976.md":         { "doc_id": "us-ca-sb976-2024" },
+  "us_ut_social_media_act.md": { "doc_id": "us-ut-social-media-2024" }
 }
