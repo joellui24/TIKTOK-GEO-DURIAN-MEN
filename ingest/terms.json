@@ -1,0 +1,11 @@
+{
+  "CDS": "content delivery system|compliance detection system",
+  "SEA": "Southeast Asia|Singapore|Malaysia|Thailand|Indonesia|Vietnam|Philippines",
+  "EU":  "European Union|EU|EEA",
+  "JP":  "Japan|JP",
+  "UGC": "user generated content",
+  "CSAM": "child sexual abuse material|exploitation|NCMEC",
+  "age_gate": "age gate|age verification|under 13|under 14|under 15|under 16|minor|teen|guardian|parental consent",
+  "notice_action": "notice-and-action|illegal content reporting|transparency|VLOP|risk assessment",
+  "curfew": "night time|curfew|push notification restrictions|time limits"
+}
