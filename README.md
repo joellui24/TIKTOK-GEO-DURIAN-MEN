@@ -31,11 +31,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# Build legal knowledge base
-python3 index/build.py
-
-# Run demo
+# Run demo (auto-builds legal knowledge base on first run)
 python3 simple_demo.py
+
+# For LLM-enhanced version:
+cp .env.example .env  # Add your API key
+python3 llm_demo.py
 ```
 
 ## 📊 Demo Results

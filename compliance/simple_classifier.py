@@ -33,8 +33,39 @@ class SimpleComplianceClassifier:
     def __init__(self):
         self.embedding_model = TextEmbedding(model_name=EMBED_MODEL)
         self.client = chromadb.PersistentClient(path=str(INDEX_DIR))
-        self.collection = self.client.get_collection("laws")
+        self.collection = self._ensure_index_exists()
         self.terms = self._load_terms()
+    
+    def _ensure_index_exists(self):
+        """Ensure vector index exists, build if necessary"""
+        try:
+            # Try to get existing collection
+            collection = self.client.get_collection("laws")
+            return collection
+        except Exception as e:
+            if "does not exist" in str(e).lower() or "not found" in str(e).lower():
+                print("🔧 Vector index not found. Building automatically...")
+                print("⏱️  This is a one-time setup that may take 1-2 minutes...")
+                try:
+                    # Import and run the build function
+                    import sys
+                    sys.path.append(str(ROOT / "index"))
+                    from build import build_index
+                    build_index()
+                    print("✅ Vector index built successfully!")
+                    # Now get the collection
+                    collection = self.client.get_collection("laws")
+                    return collection
+                except Exception as build_error:
+                    print(f"❌ Failed to build vector index: {build_error}")
+                    print("\nFallback options:")
+                    print("1. Run manually: python3 index/build.py")
+                    print("2. Check that data/laws/*.md files exist")
+                    print("3. Ensure all dependencies are installed")
+                    raise Exception(f"Vector index build failed: {build_error}")
+            else:
+                # Some other ChromaDB error
+                raise e
         
         # Compliance indicators
         self.compliance_patterns = {
