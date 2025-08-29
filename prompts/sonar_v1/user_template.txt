@@ -1,0 +1,20 @@
+Task: Classify if this feature needs geo-specific compliance logic.
+
+Feature:
+- title: "{title}"
+- description: "{description}"
+
+Retrieved legal context (top {k}):
+{context_blocks}
+(Each block is [ctx_i] doc_id, section, chunk_index, and a short snippet.)
+
+Labels:
+- needs_geo_compliance ∈ {yes, no, uncertain}
+
+Rubric (condensed):
+- yes: explicit legal obligation (age verification/parental consent/curfew; 18 USC 2258A; EU DSA notice/transparency; lawful geo-blocking; explicit "comply with [law]").
+- no: business/UX/experiments/analytics/monetization with no legal trigger.
+- uncertain: geographic intent without supporting law in context, or insufficient/conflicting info.
+
+Output: Return JSON only. Follow the JSON Schema exactly.
+
