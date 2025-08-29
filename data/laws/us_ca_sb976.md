@@ -84,3 +84,125 @@
 - Track parental consent and control usage
 
 This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.
+
+## Extended Provisions and Implementation Details
+
+### Section 22679 - Algorithmic Transparency for Minors
+
+**Feed Algorithm Requirements:**
+- Chronological feed must show posts in reverse chronological order
+- No engagement-based ranking for users under 18
+- Prohibition on addiction-maximizing features for minors
+- Limited use of user interaction data for content ordering
+
+**Recommendation System Restrictions:**
+- No amplification of potentially harmful content to minors
+- Reduced frequency of suggested content for users under 18
+- Parental oversight of recommendation algorithm parameters
+- Regular audits of algorithmic bias affecting minor users
+
+### Section 22680 - Digital Wellbeing Features
+
+**Mandatory Wellbeing Tools:**
+- Screen time dashboards with usage analytics
+- Break reminders after 30 minutes of continuous use
+- Sleep mode features during parent-configured hours
+- Weekly usage reports sent to parents automatically
+
+**Mental Health Safeguards:**
+- Detection and intervention for excessive usage patterns
+- Resources for users showing signs of digital addiction
+- Connection to mental health resources when appropriate
+- Crisis intervention protocols for at-risk minors
+
+### Section 22681 - Content Safety and Moderation
+
+**Enhanced Content Controls:**
+- Stricter community guidelines enforcement for content viewed by minors
+- Proactive scanning for content harmful to minors (self-harm, eating disorders)
+- Age-appropriate advertising restrictions beyond general ad targeting limits
+- Enhanced reporting mechanisms specifically for minor safety concerns
+
+**Geographic Content Filtering:**
+- Location-aware content moderation for California minors
+- Regional sensitivity to California-specific safety concerns
+- Coordination with California educational authorities on harmful trends
+- Customized content warnings based on local context
+
+### Section 22682 - Data Protection and Privacy Enhancements
+
+**Minor Data Processing Limitations:**
+- Strict data minimization for users under 18 in California
+- Prohibition on selling or sharing minor user data
+- Enhanced consent requirements for any data processing beyond basic service provision
+- Right to data deletion with simplified processes for minors
+
+**Parental Data Access Rights:**
+- Parents can request complete data reports on minor's account activity
+- Access to advertising profiles created for minor users
+- Right to correct inaccurate information in minor's profile
+- Notification requirements for data breaches affecting minor users
+
+### Section 22683 - Educational and Support Requirements
+
+**Digital Literacy Programs:**
+- Platforms must provide age-appropriate digital literacy resources
+- Collaboration with California schools on online safety education
+- Regular updates to safety education materials
+- Support for parents in understanding digital platform risks
+
+**Community Support Features:**
+- Integration with California mental health resources
+- Connection to local support groups for families
+- Resources for parents dealing with social media-related issues
+- Crisis support hotlines accessible within platform
+
+### Section 22684 - Technical Standards and Specifications
+
+**Age Verification Standards:**
+- Minimum 98% accuracy rate for age verification systems
+- Multi-factor verification for account creation by minors
+- Regular testing and validation of age detection algorithms
+- Accommodation for users without traditional identification documents
+
+**Geographic Detection Requirements:**
+- GPS-based location verification for California residency
+- IP address analysis as secondary verification method
+- Regular validation of location data accuracy
+- Privacy-preserving location verification techniques
+
+**Audit and Compliance Framework:**
+- Monthly automated compliance testing
+- Annual third-party audits by certified organizations
+- Real-time monitoring of safety feature effectiveness
+- Public transparency reports on compliance metrics
+
+### Section 22685 - Enforcement and Penalties
+
+**Escalated Penalty Structure:**
+- First violation: $2,500 per affected minor
+- Second violation: $5,000 per affected minor  
+- Systematic violations: Up to $25,000 per affected minor
+- Revenue-based penalties for platforms with >$100M annual revenue
+
+**Compliance Incentives:**
+- Reduced penalties for proactive compliance measures
+- Safe harbor for platforms demonstrating good faith efforts
+- Recognition program for exemplary minor protection practices
+- Expedited approval processes for innovative safety features
+
+## Multi-Jurisdictional Coordination
+
+### Interstate Cooperation
+- Coordination with other states implementing similar protections
+- Information sharing on effective compliance strategies
+- Joint enforcement actions for multi-state violations
+- Harmonized standards to reduce platform compliance burden
+
+### Federal Coordination
+- Alignment with federal privacy regulations (COPPA)
+- Cooperation with FTC on enforcement actions
+- Support for federal legislation on platform accountability
+- Information sharing on emerging threats to minor safety
+
+This comprehensive framework establishes California as a leader in digital minor protection while providing clear implementation guidance for social media platforms.

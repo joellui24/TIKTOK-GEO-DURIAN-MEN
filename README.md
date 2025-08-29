@@ -39,6 +39,29 @@ cp .env.example .env  # Add your API key
 python3 llm_demo.py
 ```
 
+## 🎯 Generate Sonar JSON for Testing
+
+**NEW**: Generate optimized JSON templates for manual Sonar testing without API costs:
+
+```bash
+# Generate JSON for any feature
+python3 generate_sonar_json.py "Feature Title" "Feature description explaining what it does"
+
+# Examples:
+python3 generate_sonar_json.py "Curfew enforcement system" "Block platform access for Utah minors during night hours 10:30PM-6:00AM"
+
+python3 generate_sonar_json.py "EU content reporting" "Automated illegal content detection and reporting for European users"
+
+python3 generate_sonar_json.py "Engagement dashboard" "Internal analytics showing user interaction metrics"
+```
+
+**What it does:**
+- 🔍 **Queries ChromaDB** automatically for relevant legal articles
+- 🏷️ **Expands TikTok jargon** (GH → geo-handler, ASL → age-sensitive logic)
+- 📄 **Generates complete JSON** with legal context and citations
+- ⚖️ **Requires reasoning** and specific article references from Sonar
+- 🎯 **Ready for testing** - copy-paste into Sonar for manual evaluation
+
 ## 📊 Demo Results
 
 The system correctly classifies test features:
@@ -78,16 +101,22 @@ Feature Description
 ## 📁 Project Structure
 
 ```
-├── compliance/              # Core classification system
-│   ├── simple_classifier.py   # Rule-based classifier (no LLM needed)
-│   └── classifier.py          # Advanced LLM-based classifier  
-├── data/laws/              # Legal documents with metadata
-├── index/                  # Search and indexing tools
+├── compliance/                 # Core classification system
+│   ├── simple_classifier.py      # Rule-based classifier (no LLM needed)
+│   └── llm_classifier.py         # Advanced LLM-based classifier  
+├── data/laws/                 # Legal documents with metadata
+│   ├── us_ut_social_media_act.md # Utah minor protection laws
+│   ├── us_ca_sb976.md            # California SB976 feed restrictions
+│   ├── eu_dsa.md                 # EU Digital Services Act
+│   └── ...                      # Additional regulations
+├── index/                     # Search and indexing tools
 ├── ingest/
-│   ├── terms.json         # TikTok terminology dictionary
-│   └── manifest.json      # Document registry
-├── simple_demo.py         # Main demo (works offline)
-└── outputs/               # Generated compliance reports
+│   ├── terms.json            # TikTok terminology dictionary
+│   └── manifest.json         # Document registry
+├── generate_sonar_json.py    # 🆕 Generate JSON for Sonar testing
+├── simple_demo.py            # Main demo (works offline)
+├── llm_demo.py              # LLM-enhanced demo
+└── outputs/                 # Generated compliance reports
 ```
 
 ## 🎯 Key Innovations
@@ -107,6 +136,13 @@ Combines semantic search with rule-based patterns for explainable, accurate clas
 
 ### 4. **Production-Ready Output**
 CSV format with detailed reasoning, confidence scores, and source citations ready for compliance teams.
+
+### 5. **Sonar JSON Generation** 🆕
+Generate optimized JSON templates for manual Sonar testing:
+- **Dynamic legal retrieval** from expanded ChromaDB
+- **Enhanced reasoning requirements** with specific article citations
+- **TikTok jargon expansion** for accurate context understanding
+- **No API costs** - perfect for iterative prompt optimization
 
 ## 🚀 Business Impact
 
