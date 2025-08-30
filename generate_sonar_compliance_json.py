@@ -116,13 +116,17 @@ def generate_sonar_json(feature_title: str, feature_description: str) -> Tuple[D
     
     # Create the JSON structure
     sonar_json = {
-        "task": "Based solely on the provided articles, determine whether the described feature requires geo-specific compliance.",
+        "task": "Determine if the described feature rollout is legally required geo-specific compliance OR just a business-driven (voluntary) market decision.", 
+        "decision_rules": { 
+    "uncertain": "Return 'uncertain' if the articles do not mention either the jurisdiction or the described feature.",
+    "yes": "Return 'yes' ONLY if the articles explicitly state that the law requires this exact feature or rollout in the given jurisdiction (i.e., both feature and jurisdiction are named in a legal mandate).",
+    "no": "Return 'no' if the feature described is not legally required in the given jurisdiction, even if some similar compliance exists elsewhere or for other features."},
         "feature_title": feature_title,
         "feature_description": feature_description,
         "Expanded_tiktok_jargons": jargons_found,
         "articles": formatted_articles,
         "output_format_json": {
-            "verdict": "yes | no | uncertain",
+            "verdict": "yes | no| uncertain",
             "reasoning": "Concise, article-based justification, maximum 500 characters",
             "references": ["List of relevant laws and sections "]
         },
