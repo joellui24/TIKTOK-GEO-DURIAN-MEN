@@ -272,7 +272,7 @@ def article_based_chunks(text: str, doc_metadata: dict) -> List[dict]:
                 'number': article_match[0],
                 'title': article_match[1]
             }
-            current_content = [line]  # Include article header
+            current_content = []  # Start fresh, exclude article header
             
         elif current_article:
             current_content.append(line)
