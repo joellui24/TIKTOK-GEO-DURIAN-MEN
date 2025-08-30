@@ -124,7 +124,7 @@ def generate_sonar_json(feature_title: str, feature_description: str) -> Tuple[D
         "output_format_json": {
             "verdict": "yes | no | uncertain",
             "reasoning": "Concise, article-based justification, maximum 500 characters",
-            "references": ["List of relevant laws, do not list the section names or quotes"]
+            "references": ["List of relevant laws and sections "]
         },
         "constraints": [
             "Use only the provided articles as legal authority.",
