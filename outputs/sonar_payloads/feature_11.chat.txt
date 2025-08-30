@@ -34,11 +34,8 @@ Feature:
 - title: Universal PF deactivation on guest mode
 - description: By default, PF will be turned off for all users browsing in guest mode.
 
-Retrieved legal context (top 4):
-[ctx_1] EU — Digital Services Act (extract) — "Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to mo..."
-[ctx_2] EU — Digital Services Act (extract) — "Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content"
-[ctx_3] EU — Digital Services Act (extract) — "The mechanisms referred to in paragraph 1 shall be user-friendly and allow for the submission of notices exclusively by electronic means"
-[ctx_4] EU — Digital Services Act (extract) — "It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broad..."
+Retrieved legal context (top 0):
+
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

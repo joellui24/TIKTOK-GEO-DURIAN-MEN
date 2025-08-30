@@ -1,6 +1,6 @@
 {
   "used_jurisdiction": "Florida, United States",
-  "explicit_jurisdiction": "",
+  "explicit_jurisdiction": "UNKNOWN",
   "inferred_jurisdiction": "Florida, United States",
   "cards": [
     "[ctx_1] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"(2) For accounts held by minors, the social media platform shall: (a) Use heightened privacy settings by default; (b) Prohibit targeted advertising based on the personal information of the minor; (c) Prohibit the collection, use, sharing, or selling of pers...\"",

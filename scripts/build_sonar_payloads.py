@@ -180,7 +180,7 @@ def infer_jurisdiction(title: str, desc: str) -> str:
             return "California, United States"
 
     # Default fallback
-    return "European Union"
+    return "UNKNOWN"
 
 # ---------- Formatting ----------
 def to_context_cards(passages: List[Dict]) -> List[str]:
@@ -268,20 +268,43 @@ def main():
         inferred = ""
         if not args.no_auto_jurisdiction and not explicit:
             inferred = infer_jurisdiction(title, desc)
-        juris = explicit or inferred or args.fallback_jurisdiction
 
-        print(f"🔎 [{feat_id}] jurisdiction -> explicit='{explicit or '-'}' | inferred='{inferred or '-'}' | using='{juris}'")
+        # Choose jurisdiction with UNKNOWN fallback
+        if explicit:
+            juris = explicit
+        elif inferred and inferred != "UNKNOWN":
+            juris = inferred
+        else:
+            juris = "UNKNOWN"
 
-        passages = retriever.search(
-            feature_title=title,
-            feature_description=desc,
-            feature_jurisdiction=juris,
-            k=args.k
-        )
+        # Log nicely (avoid nested quotes issue)
+        exp_disp = explicit or "-"
+        inf_disp = inferred or "-"
+        print(f"🔎 [{feat_id}] jurisdiction -> explicit='{exp_disp}' | inferred='{inf_disp}' | using='{juris}'")
 
+        # Retrieve: if UNKNOWN, use global obligation-only tier (empty juris string)
+        if juris == "UNKNOWN":
+            passages = retriever.search(
+                feature_title=title,
+                feature_description=desc,
+                feature_jurisdiction="UNKNOWN",   
+                k=args.k,
+                allow_global_fallback=False
+            )
+        else:
+            passages = retriever.search(
+                feature_title=title,
+                feature_description=desc,
+                feature_jurisdiction=juris,
+                k=args.k,
+                allow_global_fallback=True
+            )
+
+        # Build cards & payload
         cards = to_context_cards(passages)[:args.k]
         payload, chat_txt = build_payload(feat, cards, fewshots_text)
 
+        # Write artifacts
         out_json = outdir / f"{feat_id}.json"
         out_chat = outdir / f"{feat_id}.chat.txt"
         out_ctx  = outdir / f"{feat_id}.context.json"
@@ -292,15 +315,13 @@ def main():
                 f.write(f"[{m['role'].upper()}]\n{m['content']}\n\n")
         out_ctx.write_text(json.dumps({
             "used_jurisdiction": juris,
-            "explicit_jurisdiction": explicit,
-            "inferred_jurisdiction": inferred,
+            "explicit_jurisdiction": explicit or "UNKNOWN",
+            "inferred_jurisdiction": inferred or "UNKNOWN",
             "cards": cards,
             "passages": passages
         }, ensure_ascii=False, indent=2))
 
         print(f"✅ wrote {out_json.name}, {out_chat.name}, {out_ctx.name} -> {outdir}")
-
-    print("\nAll payloads generated.")
 
 if __name__ == "__main__":
     main()

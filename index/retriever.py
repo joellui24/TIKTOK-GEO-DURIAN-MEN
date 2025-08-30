@@ -9,9 +9,9 @@ Priority tiers (all obligation-filtered):
   2) same state (US)
   3) same country
   4) same region (eu/us)
-  5) global fallback
+  5) global fallback (optional)
 
-Returns top-k unique chunks ranked by vector similarity with small jurisdiction bonus.
+Returns top-k unique chunks ranked by vector similarity with a small jurisdiction bonus.
 """
 
 from __future__ import annotations
@@ -45,7 +45,7 @@ def _parse_jurisdiction(j: str) -> Dict[str, str]:
         region = "eu"
     if "united states" in jn or jn in {"usa", "us"}:
         country = "united states"; region = "us"
-    for nm in ["utah","california","florida","new york","texas"]:
+    for nm in ["utah", "california", "florida", "new york", "texas"]:
         if nm in jn:
             state = nm
             if not country:
@@ -57,7 +57,7 @@ def _where_eq_map(d: Dict[str, object]) -> Dict[str, object]:
     """
     Build a Chroma 0.5-compliant filter:
       {"$and": [{"field": {"$eq": val}}, ...]}
-    Falls back to single {"field": {"$eq": val}} when only one item.
+    Falls back to a single {"field": {"$eq": val}} when only one item.
     """
     items = [{k: {"$eq": v}} for k, v in d.items()]
     if len(items) == 1:
@@ -70,7 +70,7 @@ class LawRetriever:
         self.client = chromadb.PersistentClient(path=str(INDEX_DIR))
         self.coll = self.client.get_collection(COLLECTION_NAME)
         self.embedder = TextEmbedding(model_name=EMBED_MODEL)
-        # warmup
+        # warmup (first call may trigger model load)
         _ = list(self.embedder.embed(["warmup"]))
 
     def _embed(self, text: str) -> List[float]:
@@ -81,7 +81,7 @@ class LawRetriever:
             query_embeddings=[qvec],
             n_results=n_results,
             where=where,
-            include=["documents", "metadatas", "distances"]
+            include=["documents", "metadatas", "distances"],  # no "ids" in Chroma 0.5 include
         )
 
     def search(
@@ -90,25 +90,37 @@ class LawRetriever:
         feature_description: str,
         feature_jurisdiction: str,
         k: int = 8,
+        allow_global_fallback: bool = True,
     ) -> List[Dict[str, Any]]:
         """
         Jurisdiction-first retrieval with obligation filtering and small geo bonuses.
+
+        If feature_jurisdiction is empty/UNKNOWN and allow_global_fallback=False,
+        returns [] (so no law can be quoted).
         """
         qtext = f"{feature_title}\n\n{feature_description}"
         qvec = self._embed(qtext)
 
-        geo = _parse_jurisdiction(feature_jurisdiction)
-        tiers: List[Dict[str, Any]] = []
-
-        if geo["juris_norm"]:
-            tiers.append({"juris_norm": geo["juris_norm"], "is_obligation": True})
-        if geo["state"]:
-            tiers.append({"state": geo["state"], "is_obligation": True})
-        if geo["country"]:
-            tiers.append({"country": geo["country"], "is_obligation": True})
-        if geo["region"]:
-            tiers.append({"region": geo["region"], "is_obligation": True})
-        tiers.append({"is_obligation": True})  # global fallback
+        # Handle unknown/blank jurisdiction
+        if not feature_jurisdiction or feature_jurisdiction.strip().upper() == "UNKNOWN":
+            if not allow_global_fallback:
+                return []  # strict: no context when jurisdiction is unknown
+            geo = {"juris_norm": "", "state": "", "country": "", "region": ""}
+            tiers: List[Dict[str, Any]] = [{"is_obligation": True}]  # global only
+        else:
+            geo = _parse_jurisdiction(feature_jurisdiction)
+            tiers: List[Dict[str, Any]] = []
+            if geo["juris_norm"]:
+                tiers.append({"juris_norm": geo["juris_norm"], "is_obligation": True})
+            if geo["state"]:
+                tiers.append({"state": geo["state"], "is_obligation": True})
+            if geo["country"]:
+                tiers.append({"country": geo["country"], "is_obligation": True})
+            if geo["region"]:
+                tiers.append({"region": geo["region"], "is_obligation": True})
+            # global tier last if allowed
+            if allow_global_fallback:
+                tiers.append({"is_obligation": True})
 
         seen = set()
         bag: List[Tuple[float, Dict[str, Any]]] = []
@@ -116,25 +128,29 @@ class LawRetriever:
 
         for filt in tiers:
             res = self._query(qvec, per_tier_fetch, where=_where_eq_map(filt))
-            ids = res.get("ids", [[]])[0]
             docs = res.get("documents", [[]])[0]
             metas = res.get("metadatas", [[]])[0]
             dists = res.get("distances", [[]])[0]
 
-            for _id, _doc, _meta, _dist in zip(ids, docs, metas, dists):
+            for idx in range(min(len(docs), len(metas), len(dists))):
+                _doc = docs[idx]
+                _meta = metas[idx]
+                _dist = dists[idx]
+                _id = _meta.get("chunk_id") or f"row_{idx}"  # stable-ish fallback
+
                 if _id in seen:
                     continue
                 if not OBLIGATION_REGEX.search(_doc or ""):
                     continue
 
                 bonus = 0.0
-                if geo["juris_norm"] and _norm(_meta.get("juris_norm", "")) == geo["juris_norm"]:
+                if geo.get("juris_norm") and _norm(_meta.get("juris_norm", "")) == geo["juris_norm"]:
                     bonus -= 0.03
-                elif geo["state"] and _norm(_meta.get("state", "")) == geo["state"]:
+                elif geo.get("state") and _norm(_meta.get("state", "")) == geo["state"]:
                     bonus -= 0.02
-                elif geo["country"] and _norm(_meta.get("country", "")) == geo["country"]:
+                elif geo.get("country") and _norm(_meta.get("country", "")) == geo["country"]:
                     bonus -= 0.01
-                elif geo["region"] and _norm(_meta.get("region", "")) == geo["region"]:
+                elif geo.get("region") and _norm(_meta.get("region", "")) == geo["region"]:
                     bonus -= 0.005
 
                 seen.add(_id)

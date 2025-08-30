@@ -1,49 +1,7 @@
 {
-  "used_jurisdiction": "European Union",
-  "explicit_jurisdiction": "",
-  "inferred_jurisdiction": "European Union",
-  "cards": [
-    "[ctx_1] EU — Digital Services Act (extract) — \"Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to mo...\"",
-    "[ctx_2] EU — Digital Services Act (extract) — \"It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broad...\"",
-    "[ctx_3] EU — Digital Services Act (extract) — \"Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the w...\"",
-    "[ctx_4] EU — Digital Services Act (extract) — \"Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content\""
-  ],
-  "passages": [
-    {
-      "id": "eu_dsa-s002",
-      "text": "Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to modify or influence those main parameters. ## Article 35",
-      "distance": 1.0044218301773071,
-      "jurisdiction": "EU",
-      "law": "Digital Services Act (extract)",
-      "source_url": "",
-      "file": "data/laws/eu_dsa.md"
-    },
-    {
-      "id": "eu_dsa-s006",
-      "text": "It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broadly understood by the largest possible number of speakers in the Union. ## Article 25",
-      "distance": 1.056685209274292,
-      "jurisdiction": "EU",
-      "law": "Digital Services Act (extract)",
-      "source_url": "",
-      "file": "data/laws/eu_dsa.md"
-    },
-    {
-      "id": "eu_dsa-s001",
-      "text": "Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the way in which their algorithmic systems amplify certain risks, such as:",
-      "distance": 1.0721368789672852,
-      "jurisdiction": "EU",
-      "law": "Digital Services Act (extract)",
-      "source_url": "",
-      "file": "data/laws/eu_dsa.md"
-    },
-    {
-      "id": "eu_dsa-s004",
-      "text": "Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content.",
-      "distance": 1.0959810018539429,
-      "jurisdiction": "EU",
-      "law": "Digital Services Act (extract)",
-      "source_url": "",
-      "file": "data/laws/eu_dsa.md"
-    }
-  ]
+  "used_jurisdiction": "UNKNOWN",
+  "explicit_jurisdiction": "UNKNOWN",
+  "inferred_jurisdiction": "UNKNOWN",
+  "cards": [],
+  "passages": []
 }

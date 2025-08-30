@@ -1,6 +1,6 @@
 {
   "used_jurisdiction": "California, United States",
-  "explicit_jurisdiction": "",
+  "explicit_jurisdiction": "UNKNOWN",
   "inferred_jurisdiction": "California, United States",
   "cards": [
     "[ctx_1] California, United States — California SB976 — \"Default Settings for Minors **Algorithmic Feeds Restriction:**\"",

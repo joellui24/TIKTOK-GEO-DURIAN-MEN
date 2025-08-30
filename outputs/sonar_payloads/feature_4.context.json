@@ -1,6 +1,6 @@
 {
   "used_jurisdiction": "European Union",
-  "explicit_jurisdiction": "",
+  "explicit_jurisdiction": "UNKNOWN",
   "inferred_jurisdiction": "European Union",
   "cards": [
     "[ctx_1] EU — Digital Services Act (extract) — \"It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broad...\"",

@@ -34,11 +34,8 @@ Feature:
 - title: Chat content restrictions via LCP
 - description: Enforce message content constraints by injecting LCP rules on delivery. ShadowMode will initially deploy the logic for safe validation. No explicit mention of legal requirements, but privacy context is implied.
 
-Retrieved legal context (top 4):
-[ctx_1] EU — Digital Services Act (extract) — "Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to mo..."
-[ctx_2] EU — Digital Services Act (extract) — "Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content"
-[ctx_3] EU — Digital Services Act (extract) — "It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broad..."
-[ctx_4] EU — Digital Services Act (extract) — "Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the w..."
+Retrieved legal context (top 0):
+
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

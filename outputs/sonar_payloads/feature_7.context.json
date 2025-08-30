@@ -1,6 +1,6 @@
 {
   "used_jurisdiction": "United States",
-  "explicit_jurisdiction": "",
+  "explicit_jurisdiction": "UNKNOWN",
   "inferred_jurisdiction": "United States",
   "cards": [
     "[ctx_1] California, United States — California SB976 — \"Platforms must provide time management tools for minor users\"",

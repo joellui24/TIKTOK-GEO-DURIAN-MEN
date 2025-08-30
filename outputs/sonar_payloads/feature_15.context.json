@@ -1,6 +1,6 @@
 {
   "used_jurisdiction": "Canada",
-  "explicit_jurisdiction": "",
+  "explicit_jurisdiction": "UNKNOWN",
   "inferred_jurisdiction": "Canada",
   "cards": [
     "[ctx_1] California, United States — California SB976 — \"Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services\"",
