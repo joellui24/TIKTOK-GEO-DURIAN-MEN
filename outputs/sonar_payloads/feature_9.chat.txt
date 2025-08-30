@@ -1,3 +1,4 @@
+[SYSTEM]
 You are a compliance triage assistant for geo-specific regulation.
 Return ONE JSON object that matches the provided JSON Schema. No extra text, no markdown.
 
@@ -23,3 +24,33 @@ Output rules:
 - Citations must be context IDs: ^ctx_[0-9]+$ only.
 - If needs_geo_compliance="yes": citations.length ≥ 1.
 - If no qualifying obligation sentence exists: needs_geo_compliance="uncertain".
+- If you cannot produce valid JSON per schema, return exactly: {"needs_geo_compliance":"uncertain","citations":[]}
+
+
+[USER]
+Task: Classify whether this feature needs geo-specific compliance logic according to the provided legal context.
+
+Feature:
+- title: Minor-safe chat expansion via Jellybean
+- description: We’re expanding chat features, but for users flagged by Jellybean, certain functions (e.g., media sharing) will be limited. BB and ASL will monitor compliance posture.
+
+Retrieved legal context (top 4):
+[ctx_1] UNKNOWN — UNKNOWN LAW — "# Utah Social Media Regulation Act **Jurisdiction:** Utah, United States **Law ID:** Utah Code §13-2c-301 et seq"
+[ctx_2] EU — DSA — "## Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines
+
+1"
+[ctx_3] US-FL — HB3 — "## Section 501"
+[ctx_4] US-FL — HB3 — "## Section 501"
+# Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
+
+Labels:
+- needs_geo_compliance ∈ {yes, no, uncertain}
+
+Rubric recap:
+- yes: at least one obligation sentence and the feature applies to a jurisdictional subset.
+- no: no legal trigger in context (pure UX/analytics/monetization/experiments).
+- uncertain: no obligation sentence or conflicting/insufficient info.
+
+Return JSON only, matching this schema.
+
+

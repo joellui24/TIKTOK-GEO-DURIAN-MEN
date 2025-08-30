@@ -1,0 +1,46 @@
+{
+  "cards": [
+    "[ctx_1] UNKNOWN — UNKNOWN LAW — \"# Utah Social Media Regulation Act **Jurisdiction:** Utah, United States **Law ID:** Utah Code §13-2c-301 et seq\"",
+    "[ctx_2] EU — DSA — \"## Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines\n\n1\"",
+    "[ctx_3] US-FL — HB3 — \"## Section 501\"",
+    "[ctx_4] US-FL — HB3 — \"## Section 501\""
+  ],
+  "passages": [
+    {
+      "text": "# Utah Social Media Regulation Act **Jurisdiction:** Utah, United States **Law ID:** Utah Code §13-2c-301 et seq. **Effective Date:** 2024 **Source:** Utah State Legislature ## Key Provisions ### Section 13-2c-301 - Minor Access Restrictions **Curfew Requirements:** - Social media platforms must restrict access for users under 18 between 10:30 PM and 6:00 AM - Automatic logout or access blocking during restricted hours - Parental override capability with explicit consent - Time zone compliance based on user's Utah location **Account Verification:** - Age verification required for all Utah residents - Parental consent mandatory for users under 18 - Identity verification for parent/guardian providing consent - Regular re-verification of minor status **Default Privacy Settings:** - Private accounts by default for users under 18 - Limited discoverability for minor accounts - Restricted direct messaging from unknown users - Enhanced content filtering for age-appropriate material ### Section 13-2c-302 - Parental Controls **Account Access:** - Parents have right to access minor's account information - Messaging history available to parents upon request - Friend/follower list visibility to parents - Settings modification rights for parents **Usage Monitoring:** - Daily and weekly usage reports to parents - Screen time tracking and limits - Content interaction summaries - Alert system for concerning activities **Educational Requirements:** - Platforms must provide digital literacy resources - Safety education materials for minors and",
+      "jurisdiction": "UNKNOWN",
+      "law": "UNKNOWN LAW",
+      "chunk_id": "us-ut-social-media-2024-000",
+      "source_url": "",
+      "distance": 0.7453413009643555,
+      "relevance_score": 0.25465869903564453
+    },
+    {
+      "text": "## Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines\n\n1. Where the risk assessment carried out in accordance with Article 28 reveals one or more systemic risks, providers of very large online platforms and very large online search engines shall put in place reasonable, proportionate and effective mitigation measures, tailored to the specific systemic risks identified.\n2. The measures referred to in paragraph 1 may include, in particular:\n   (a) adapting content moderation or other relevant systems, processes or mechanisms, including by adapting automated tools or increasing human oversight;\n   (b) adapting decision-making processes;\n   (c) adapting the design, features or functioning of their services or their app, including the recommender systems;\n   (d) taking action related to advertising systems;\n   (e) pursuing awareness-raising initiatives and adapting interfaces to enable user empowerment and literacy.",
+      "jurisdiction": "EU",
+      "law": "DSA",
+      "chunk_id": "eu-dsa-2024-002",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R2065",
+      "distance": 0.7760046124458313,
+      "relevance_score": 0.2239953875541687
+    },
+    {
+      "text": "## Section 501.2044 - Content moderation and parental controls\n\n(1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to:\n   (a) Monitor and control the minor's social media use;\n   (b) View and delete the account and its information, content, and communications;\n   (c) Set time limits and restrict access during certain hours;\n   (d) Receive notifications about the minor's social media activity.\n(2) For accounts held by minors, the social media platform shall:\n   (a) Use heightened privacy settings by default;\n   (b) Prohibit targeted advertising based on the personal information of the minor;\n   (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes.",
+      "jurisdiction": "US-FL",
+      "law": "HB3",
+      "chunk_id": "us-fl-hb3-2024-003",
+      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
+      "distance": 0.7798432111740112,
+      "relevance_score": 0.22015678882598877
+    },
+    {
+      "text": "## Section 501.2042 - Restrictions on certain features for accounts held by minors\n\n(1) For any account held by a person under 16 years of age, a social media platform shall:\n   (a) Deny the minor access to the platform during the period between 10:30 p.m. and 6:00 a.m.;\n   (b) Provide a daily usage summary to the account holder and, if the account holder is under 16 years of age, to the parent or guardian;\n   (c) Allow the parent or guardian to set the specific amount of time that the minor may access the platform each day.\n(2) A social media platform may allow an account holder who is 14 or 15 years of age to access the platform during the restricted hours specified in paragraph (1)(a) if:\n   (a) The account holder's parent or guardian has approved such access; and\n   (b) The parent or guardian may revoke such approval at any time.",
+      "jurisdiction": "US-FL",
+      "law": "HB3",
+      "chunk_id": "us-fl-hb3-2024-001",
+      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
+      "distance": 0.7885087728500366,
+      "relevance_score": 0.21149122714996338
+    }
+  ]
+}

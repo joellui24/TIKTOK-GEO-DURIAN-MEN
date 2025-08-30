@@ -1,22 +1,25 @@
 {
   "type": "object",
   "properties": {
-    "needs_geo_compliance": { "type": "string", "enum": ["yes", "no", "uncertain"] },
-    "risk_level": { "type": "string", "enum": ["critical", "high", "medium", "low"] },
-    "reasoning": { "type": "string", "maxLength": 240 },
-    "applicable_regulations": { "type": "array", "items": { "type": "string" } },
+    "needs_geo_compliance": { "type": "string", "enum": ["yes","no","uncertain"] },
+    "risk_level": { "type": "string", "enum": ["critical","high","medium","low"] },
     "citations": {
       "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "ctx_index": { "type": "integer" },
-          "note": { "type": "string" }
-        },
-        "required": ["ctx_index"]
-      }
+      "items": { "type": "string", "pattern": "^ctx_[0-9]+$" },
+      "minItems": 0
     },
-    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+    "reasoning": {
+      "type": "string",
+      "maxLength": 80,
+      "pattern": "^(?:(?:ctx_[0-9]+|[A-Za-z0-9._§-])+[ ,;:]*)+$"
+    }
   },
-  "required": ["needs_geo_compliance", "risk_level", "reasoning", "confidence"]
+  "required": ["needs_geo_compliance","citations"],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": { "properties": { "needs_geo_compliance": { "const": "yes" } } },
+      "then": { "properties": { "citations": { "minItems": 1 } } }
+    }
+  ]
 }

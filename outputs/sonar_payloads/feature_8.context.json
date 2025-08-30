@@ -1,0 +1,46 @@
+{
+  "cards": [
+    "[ctx_1] US-FL — HB3 — \"## Section 501\"",
+    "[ctx_2] UNKNOWN — UNKNOWN LAW — \"- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ...\"",
+    "[ctx_3] EU — DSA — \"## Article 24 - Notification of illegal content\n\n1\"",
+    "[ctx_4] US-FL — HB3 — \"## Section 501\""
+  ],
+  "passages": [
+    {
+      "text": "## Section 501.2044 - Content moderation and parental controls\n\n(1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to:\n   (a) Monitor and control the minor's social media use;\n   (b) View and delete the account and its information, content, and communications;\n   (c) Set time limits and restrict access during certain hours;\n   (d) Receive notifications about the minor's social media activity.\n(2) For accounts held by minors, the social media platform shall:\n   (a) Use heightened privacy settings by default;\n   (b) Prohibit targeted advertising based on the personal information of the minor;\n   (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes.",
+      "jurisdiction": "US-FL",
+      "law": "HB3",
+      "chunk_id": "us-fl-hb3-2024-003",
+      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
+      "distance": 0.6505043506622314,
+      "relevance_score": 0.34949564933776855
+    },
+    {
+      "text": "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification touchpoints throughout user journey **Compliance Reporting:** - Quarterly reports on minor user safety measures - Data on parental control feature usage - Effectiveness metrics for safety implementations **Geographic Scope:** - Applies to users located in California - Geo-location verification required for compliance determination - Interstate commerce considerations for multi-state users ### Section 22678 - Enforcement **Civil Penalties:** - Violations subject to civil penalty up to $5,000 per affected minor - Pattern violations may result in higher penalties - Attorney General enforcement authority **Private Right of Action:** - Parents may bring civil action for violations - Damages include actual harm plus statutory damages - Injunctive relief available ## Implementation Requirements **Technical Implementation:** - Geographic detection systems required - Age verification at account creation and periodically - Parental consent verification systems - Default setting enforcement mechanisms **Compliance Timeline:** - 180 days from effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets",
+      "jurisdiction": "UNKNOWN",
+      "law": "UNKNOWN LAW",
+      "chunk_id": "us-ca-sb976-2024-001",
+      "source_url": "",
+      "distance": 0.6734269857406616,
+      "relevance_score": 0.3265730142593384
+    },
+    {
+      "text": "## Article 24 - Notification of illegal content\n\n1. Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content.\n2. The mechanisms referred to in paragraph 1 shall be user-friendly and allow for the submission of notices exclusively by electronic means. It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broadly understood by the largest possible number of speakers in the Union.",
+      "jurisdiction": "EU",
+      "law": "DSA",
+      "chunk_id": "eu-dsa-2024-003",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R2065",
+      "distance": 0.6757775545120239,
+      "relevance_score": 0.3242224454879761
+    },
+    {
+      "text": "## Section 501.2043 - Notification and disclosure requirements\n\n(1) Beginning January 1, 2024, a social media platform must conspicuously disclose the following information on the platform:\n   (a) How the platform's algorithms and artificial intelligence curate and target content to users;\n   (b) How the platform amplifies content and the factors that most significantly determine content placement, timing, and promotion;\n   (c) Current and previous terms of service and changes to such terms with the specific changes highlighted.\n(2) A social media platform must notify a user before implementing a change to its algorithm that may result in a material change to how content is promoted, suggested, amplified, or suppressed for that user.",
+      "jurisdiction": "US-FL",
+      "law": "HB3",
+      "chunk_id": "us-fl-hb3-2024-002",
+      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
+      "distance": 0.6830625534057617,
+      "relevance_score": 0.3169374465942383
+    }
+  ]
+}

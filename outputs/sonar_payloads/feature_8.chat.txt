@@ -1,3 +1,4 @@
+[SYSTEM]
 You are a compliance triage assistant for geo-specific regulation.
 Return ONE JSON object that matches the provided JSON Schema. No extra text, no markdown.
 
@@ -23,3 +24,33 @@ Output rules:
 - Citations must be context IDs: ^ctx_[0-9]+$ only.
 - If needs_geo_compliance="yes": citations.length ≥ 1.
 - If no qualifying obligation sentence exists: needs_geo_compliance="uncertain".
+- If you cannot produce valid JSON per schema, return exactly: {"needs_geo_compliance":"uncertain","citations":[]}
+
+
+[USER]
+Task: Classify whether this feature needs geo-specific compliance logic according to the provided legal context.
+
+Feature:
+- title: Chat content restrictions via LCP
+- description: Enforce message content constraints by injecting LCP rules on delivery. ShadowMode will initially deploy the logic for safe validation. No explicit mention of legal requirements, but privacy context is implied.
+
+Retrieved legal context (top 4):
+[ctx_1] US-FL — HB3 — "## Section 501"
+[ctx_2] UNKNOWN — UNKNOWN LAW — "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ..."
+[ctx_3] EU — DSA — "## Article 24 - Notification of illegal content
+
+1"
+[ctx_4] US-FL — HB3 — "## Section 501"
+# Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
+
+Labels:
+- needs_geo_compliance ∈ {yes, no, uncertain}
+
+Rubric recap:
+- yes: at least one obligation sentence and the feature applies to a jurisdictional subset.
+- no: no legal trigger in context (pure UX/analytics/monetization/experiments).
+- uncertain: no obligation sentence or conflicting/insufficient info.
+
+Return JSON only, matching this schema.
+
+

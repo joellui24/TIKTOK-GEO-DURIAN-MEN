@@ -1,3 +1,4 @@
+[SYSTEM]
 You are a compliance triage assistant for geo-specific regulation.
 Return ONE JSON object that matches the provided JSON Schema. No extra text, no markdown.
 
@@ -23,3 +24,31 @@ Output rules:
 - Citations must be context IDs: ^ctx_[0-9]+$ only.
 - If needs_geo_compliance="yes": citations.length ≥ 1.
 - If no qualifying obligation sentence exists: needs_geo_compliance="uncertain".
+- If you cannot produce valid JSON per schema, return exactly: {"needs_geo_compliance":"uncertain","citations":[]}
+
+
+[USER]
+Task: Classify whether this feature needs geo-specific compliance logic according to the provided legal context.
+
+Feature:
+- title: Curfew login blocker with ASL and GH for Utah minors
+- description: To comply with the Utah Social Media Regulation Act, we are implementing a curfew-based login restriction for users under 18. The system uses ASL to detect minor accounts and routes enforcement through GH to apply only within Utah boundaries.
+
+Retrieved legal context (top 4):
+[ctx_1] Utah — §13-2c-301 — "Platforms must restrict access for users under 18 between 10:30 PM and 6:00 AM."
+[ctx_2] Florida — §501.2042 — "For accounts under 16, deny access between 10:30 PM and 6:00 AM."
+[ctx_3] California — SB976 — "Platforms must disable algorithmic feeds by default for minors."
+[ctx_4] Utah — §13-2c-303 — "Geo-location detection for Utah users required; compliance limited to Utah residents."
+# Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
+
+Labels:
+- needs_geo_compliance ∈ {yes, no, uncertain}
+
+Rubric recap:
+- yes: at least one obligation sentence and the feature applies to a jurisdictional subset.
+- no: no legal trigger in context (pure UX/analytics/monetization/experiments).
+- uncertain: no obligation sentence or conflicting/insufficient info.
+
+Return JSON only, matching this schema.
+
+

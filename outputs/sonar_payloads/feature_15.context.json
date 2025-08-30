@@ -1,0 +1,46 @@
+{
+  "cards": [
+    "[ctx_1] UNKNOWN — UNKNOWN LAW — \"effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental conse...\"",
+    "[ctx_2] UNKNOWN — UNKNOWN LAW — \"# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Setti...\"",
+    "[ctx_3] UNKNOWN — UNKNOWN LAW — \"Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for pla...\"",
+    "[ctx_4] UNKNOWN — UNKNOWN LAW — \"- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ...\""
+  ],
+  "passages": [
+    {
+      "text": "effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.",
+      "jurisdiction": "UNKNOWN",
+      "law": "UNKNOWN LAW",
+      "chunk_id": "us-ca-sb976-2024-002",
+      "source_url": "",
+      "distance": 0.8452435731887817,
+      "relevance_score": 0.15475642681121826
+    },
+    {
+      "text": "# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Settings for Minors **Algorithmic Feeds Restriction:** - Social media platforms must disable algorithmic or personalized feeds by default for users under 18 - Chronological feed must be the default display option - Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:** - Platforms must provide time management tools for minor users - Daily time limits must be easily configurable by parents - Notification systems to alert when limits are approached **Notification Controls:** - Push notifications to minors restricted during nighttime hours (10 PM - 6 AM) - Parents can configure notification schedules - Educational content notifications exempt from restrictions ### Section 22676 - Parental Controls **Account Oversight:** - Parents must have access to privacy settings controls - Ability to view and modify minor's account safety settings - Regular reports on minor's platform usage patterns **Content Filtering:** - Parental ability to restrict certain content categories - Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification",
+      "jurisdiction": "UNKNOWN",
+      "law": "UNKNOWN LAW",
+      "chunk_id": "us-ca-sb976-2024-000",
+      "source_url": "",
+      "distance": 0.8597440123558044,
+      "relevance_score": 0.14025598764419556
+    },
+    {
+      "text": "Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for platforms making good faith efforts - Technical limitation considerations - Reasonable implementation timeframes - Ongoing improvement requirements **Innovation Protection:** - Encouragement of new safety technologies - Flexibility in compliance methods - Recognition of evolving technical capabilities - Balance with user experience considerations ## Implementation Requirements **Phase 1 (0-90 days):** - Age verification system implementation - Geographic detection capabilities - Basic parental control features - Initial curfew enforcement mechanisms **Phase 2 (90-180 days):** - Enhanced privacy settings for minors - Comprehensive usage monitoring - Educational resource integration - Full audit system implementation **Ongoing Requirements:** - Regular safety feature updates - Continuous monitoring and reporting - Adaptation to new platform features - Stakeholder feedback incorporation This act specifically applies to social media platform operations affecting Utah residents under 18, requiring geo-specific compliance measures to protect minors while balancing free speech and innovation considerations.",
+      "jurisdiction": "UNKNOWN",
+      "law": "UNKNOWN LAW",
+      "chunk_id": "us-ut-social-media-2024-002",
+      "source_url": "",
+      "distance": 0.8668203949928284,
+      "relevance_score": 0.13317960500717163
+    },
+    {
+      "text": "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification touchpoints throughout user journey **Compliance Reporting:** - Quarterly reports on minor user safety measures - Data on parental control feature usage - Effectiveness metrics for safety implementations **Geographic Scope:** - Applies to users located in California - Geo-location verification required for compliance determination - Interstate commerce considerations for multi-state users ### Section 22678 - Enforcement **Civil Penalties:** - Violations subject to civil penalty up to $5,000 per affected minor - Pattern violations may result in higher penalties - Attorney General enforcement authority **Private Right of Action:** - Parents may bring civil action for violations - Damages include actual harm plus statutory damages - Injunctive relief available ## Implementation Requirements **Technical Implementation:** - Geographic detection systems required - Age verification at account creation and periodically - Parental consent verification systems - Default setting enforcement mechanisms **Compliance Timeline:** - 180 days from effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets",
+      "jurisdiction": "UNKNOWN",
+      "law": "UNKNOWN LAW",
+      "chunk_id": "us-ca-sb976-2024-001",
+      "source_url": "",
+      "distance": 0.8830525875091553,
+      "relevance_score": 0.11694741249084473
+    }
+  ]
+}

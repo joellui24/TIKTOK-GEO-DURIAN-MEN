@@ -1,0 +1,60 @@
+{
+  "model": "sonar-pro",
+  "temperature": 0,
+  "top_p": 0,
+  "disable_search": true,
+  "max_tokens": 400,
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a compliance triage assistant for geo-specific regulation.\nReturn ONE JSON object that matches the provided JSON Schema. No extra text, no markdown.\n\nDecision policy:\n- “Geo-specific” = any legal obligation scoped to a jurisdictional subset (e.g., EU users, US federal scope, Utah minors, California teens). Harmonized regional laws count.\n- Say \"yes\" ONLY if at least one context item states a concrete legal obligation containing one of:\n  shall|must|required|prohibited|consent|verify|report|age verification|curfew.\n- Prefer citations whose jurisdiction matches the feature’s stated geo. Tie-breaker:\n  exact match > regional (EU/US federal) > adjacent/analog US state > unrelated.\n- Say \"no\" for business/UX/experiments/analytics/monetization with no legal trigger.\n- Say \"uncertain\" if no obligation sentence is present, or info is insufficient/conflicting.\n- Do not invent laws. Cite only provided context IDs in “citations”.\n- \"reasoning\" ≤ 80 words; refer only to context IDs (e.g., ctx_1) or law IDs.\n\nRisk levels:\n- critical: shipping without control likely unlawful or penalized by statute.\n- high: clear obligation, penalties unclear, high enforcement risk.\n- medium: probable obligation but scope/implementation unclear.\n- low: no trigger found or purely non-legal change.\n\nOutput rules:\n- Exactly one JSON object; no prose before/after.\n- Citations must be context IDs: ^ctx_[0-9]+$ only.\n- If needs_geo_compliance=\"yes\": citations.length ≥ 1.\n- If no qualifying obligation sentence exists: needs_geo_compliance=\"uncertain\".\n- If you cannot produce valid JSON per schema, return exactly: {\"needs_geo_compliance\":\"uncertain\",\"citations\":[]}\n"
+    },
+    {
+      "role": "user",
+      "content": "Task: Classify whether this feature needs geo-specific compliance logic according to the provided legal context.\n\nFeature:\n- title: Canada-first PF variant test\n- description: Launch a PF variant in CA as part of early experimentation. Spanner will isolate affected cohorts and Glow flags will monitor feature health.\n\nRetrieved legal context (top 4):\n[ctx_1] UNKNOWN — UNKNOWN LAW — \"effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental conse...\"\n[ctx_2] UNKNOWN — UNKNOWN LAW — \"# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Setti...\"\n[ctx_3] UNKNOWN — UNKNOWN LAW — \"Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for pla...\"\n[ctx_4] UNKNOWN — UNKNOWN LAW — \"- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ...\"\n# Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — \"obligation sentence...\"\n\nLabels:\n- needs_geo_compliance ∈ {yes, no, uncertain}\n\nRubric recap:\n- yes: at least one obligation sentence and the feature applies to a jurisdictional subset.\n- no: no legal trigger in context (pure UX/analytics/monetization/experiments).\n- uncertain: no obligation sentence or conflicting/insufficient info.\n\nReturn JSON only, matching this schema.\n"
+    }
+  ],
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "needs_geo_compliance": {
+            "type": "string",
+            "enum": [
+              "yes",
+              "no",
+              "uncertain"
+            ]
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": [
+              "critical",
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0
+          },
+          "reasoning": {
+            "type": "string",
+            "maxLength": 80
+          }
+        },
+        "required": [
+          "needs_geo_compliance",
+          "citations"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "feature_id": "feature_1",
+    "feature_name": "Curfew login blocker with ASL and GH for Utah minors",
+    "feature_description": "To comply with the Utah Social Media Regulation Act, we are implementing a curfew-based login restriction for users under 18. The system uses ASL to detect minor accounts and routes enforcement through GH to apply only within Utah boundaries. The feature activates during restricted night hours and logs activity using EchoTrace for auditability. This allows parental control to be enacted without user-facing alerts, operating in ShadowMode during initial rollout."
+  },
+  {
+    "feature_id": "feature_2",
+    "feature_name": "PF default toggle with NR enforcement for California teens",
+    "feature_description": "As part of compliance with California’s SB976, the app will disable PF by default for users under 18 located in California. This default setting is considered NR to override, unless explicit parental opt-in is provided. Geo-detection is handled via GH, and rollout is monitored with FR logs. The design ensures minimal disruption while meeting the strict personalization requirements imposed by the law."
+  },
+  {
+    "feature_id": "feature_3",
+    "feature_name": "Child abuse content scanner using T5 and CDS triggers",
+    "feature_description": "In line with the US federal law requiring providers to report child sexual abuse content to NCMEC, this feature scans uploads and flags suspected materials tagged as T5. Once flagged, the CDS auto-generates reports and routes them via secure channel APIs. The logic runs in real-time, supports human validation, and logs detection metadata for internal audits. Regional thresholds are governed by LCP parameters in the backend."
+  },
+  {
+    "feature_id": "feature_4",
+    "feature_name": "Content visibility lock with NSP for EU DSA",
+    "feature_description": "To meet the transparency expectations of the EU Digital Services Act, we are introducing a visibility lock for flagged user-generated content labeled under NSP. When such content is detected, a soft Softblock is applied and GH ensures enforcement is restricted to the EU region only. EchoTrace supports traceability, and Redline status can be triggered for legal review. This feature enhances accountability and complies with Article 16’s removal mechanisms."
+  },
+  {
+    "feature_id": "feature_5",
+    "feature_name": "Jellybean-based parental notifications for Florida regulation",
+    "feature_description": "To support Florida's Online Protections for Minors law, this feature extends the Jellybean parental control framework. Notifications are dispatched to verified parent accounts when a minor attempts to access restricted features. Using IMT, the system checks behavioral anomalies against BB models. If violations are detected, restrictions are applied in ShadowMode with full audit logging through CDS. Glow flags ensure compliance visibility during rollout phases."
+  },
+  {
+    "feature_id": "feature_6",
+    "feature_name": "Unified retention control via DRT & CDS",
+    "feature_description": "Introduce a data retention feature using DRT thresholds, ensuring automatic log deletion across all regions. CDS will continuously audit retention violations, triggering EchoTrace as necessary. Spanner logic ensures all platform modules comply uniformly."
+  },
+  {
+    "feature_id": "feature_7",
+    "feature_name": "Age-specific notification controls with ASL",
+    "feature_description": "Notifications will be tailored by age using ASL, allowing us to throttle or suppress push alerts for minors. EchoTrace will log adjustments, and CDS will verify enforcement across rollout waves."
+  },
+  {
+    "feature_id": "feature_8",
+    "feature_name": "Chat content restrictions via LCP",
+    "feature_description": "Enforce message content constraints by injecting LCP rules on delivery. ShadowMode will initially deploy the logic for safe validation. No explicit mention of legal requirements, but privacy context is implied."
+  },
+  {
+    "feature_id": "feature_9",
+    "feature_name": "Minor-safe chat expansion via Jellybean",
+    "feature_description": "We’re expanding chat features, but for users flagged by Jellybean, certain functions (e.g., media sharing) will be limited. BB and ASL will monitor compliance posture."
+  },
+  {
+    "feature_id": "feature_10",
+    "feature_name": "Friend suggestions with underage safeguards",
+    "feature_description": "New suggestion logic uses PF to recommend friends, but minors are excluded from adult pools using ASL and CDS logic. EchoTrace logs interactions in case future policy gates are needed."
+  },
+  {
+    "feature_id": "feature_11",
+    "feature_name": "Universal PF deactivation on guest mode",
+    "feature_description": "By default, PF will be turned off for all users browsing in guest mode."
+  },
+  {
+    "feature_id": "feature_12",
+    "feature_name": "Story resharing with content expiry",
+    "feature_description": "Enable users to reshare stories from others, with auto-expiry after 48 hours. This feature logs resharing attempts with EchoTrace and stores activity under BB."
+  },
+  {
+    "feature_id": "feature_13",
+    "feature_name": "Leaderboard system for weekly creators",
+    "feature_description": "Introduce a creator leaderboard updated weekly using internal analytics. Points and rankings are stored in FR metadata and tracked using IMT."
+  },
+  {
+    "feature_id": "feature_14",
+    "feature_name": "Mood-based PF enhancements",
+    "feature_description": "Adjust PF recommendations based on inferred mood signals from emoji usage. This logic is soft-tuned using BB and undergoes quiet testing in ShadowMode."
+  },
+  {
+    "feature_id": "feature_15",
+    "feature_name": "Canada-first PF variant test",
+    "feature_description": "Launch a PF variant in CA as part of early experimentation. Spanner will isolate affected cohorts and Glow flags will monitor feature health."
+  }
+]

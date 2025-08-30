@@ -1,0 +1,46 @@
+{
+  "cards": [
+    "[ctx_1] EU — DSA — \"## Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines\n\n1\"",
+    "[ctx_2] US-FL — HB3 — \"## Section 501\"",
+    "[ctx_3] EU — DSA — \"## Article 28 - Risk assessment for very large online platforms and very large online search engines\n\n1\"",
+    "[ctx_4] UNKNOWN — UNKNOWN LAW — \"- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ...\""
+  ],
+  "passages": [
+    {
+      "text": "## Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines\n\n1. Where the risk assessment carried out in accordance with Article 28 reveals one or more systemic risks, providers of very large online platforms and very large online search engines shall put in place reasonable, proportionate and effective mitigation measures, tailored to the specific systemic risks identified.\n2. The measures referred to in paragraph 1 may include, in particular:\n   (a) adapting content moderation or other relevant systems, processes or mechanisms, including by adapting automated tools or increasing human oversight;\n   (b) adapting decision-making processes;\n   (c) adapting the design, features or functioning of their services or their app, including the recommender systems;\n   (d) taking action related to advertising systems;\n   (e) pursuing awareness-raising initiatives and adapting interfaces to enable user empowerment and literacy.",
+      "jurisdiction": "EU",
+      "law": "DSA",
+      "chunk_id": "eu-dsa-2024-002",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R2065",
+      "distance": 0.8796939849853516,
+      "relevance_score": 0.12030601501464844
+    },
+    {
+      "text": "## Section 501.2043 - Notification and disclosure requirements\n\n(1) Beginning January 1, 2024, a social media platform must conspicuously disclose the following information on the platform:\n   (a) How the platform's algorithms and artificial intelligence curate and target content to users;\n   (b) How the platform amplifies content and the factors that most significantly determine content placement, timing, and promotion;\n   (c) Current and previous terms of service and changes to such terms with the specific changes highlighted.\n(2) A social media platform must notify a user before implementing a change to its algorithm that may result in a material change to how content is promoted, suggested, amplified, or suppressed for that user.",
+      "jurisdiction": "US-FL",
+      "law": "HB3",
+      "chunk_id": "us-fl-hb3-2024-002",
+      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
+      "distance": 0.8896166682243347,
+      "relevance_score": 0.11038333177566528
+    },
+    {
+      "text": "## Article 28 - Risk assessment for very large online platforms and very large online search engines\n\n1. Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular:\n   (a) from the way in which their algorithmic systems amplify certain risks, such as:\n       - illegal content in areas such as child sexual abuse, terrorist content, illegal hate speech, commercial fraud and counterfeiting of products;\n       - risks for the exercise of fundamental rights, in particular the rights to human dignity, freedom of expression and information, the right to private and family life, the rights of the child and consumer protection, the right to non-discrimination and the rights of women and of persons belonging to vulnerable groups;\n   (b) from their use by recipients of the service, including misuse through:\n       - the submission of illegal content, including by inauthentic use or automated exploitation of the service;\n       - inauthentic or abusive behavior that may lead to the rapid and wide dissemination of information that is illegal content or incompatible with their terms and conditions;",
+      "jurisdiction": "EU",
+      "law": "DSA",
+      "chunk_id": "eu-dsa-2024-000",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R2065",
+      "distance": 0.892953634262085,
+      "relevance_score": 0.10704636573791504
+    },
+    {
+      "text": "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification touchpoints throughout user journey **Compliance Reporting:** - Quarterly reports on minor user safety measures - Data on parental control feature usage - Effectiveness metrics for safety implementations **Geographic Scope:** - Applies to users located in California - Geo-location verification required for compliance determination - Interstate commerce considerations for multi-state users ### Section 22678 - Enforcement **Civil Penalties:** - Violations subject to civil penalty up to $5,000 per affected minor - Pattern violations may result in higher penalties - Attorney General enforcement authority **Private Right of Action:** - Parents may bring civil action for violations - Damages include actual harm plus statutory damages - Injunctive relief available ## Implementation Requirements **Technical Implementation:** - Geographic detection systems required - Age verification at account creation and periodically - Parental consent verification systems - Default setting enforcement mechanisms **Compliance Timeline:** - 180 days from effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets",
+      "jurisdiction": "UNKNOWN",
+      "law": "UNKNOWN LAW",
+      "chunk_id": "us-ca-sb976-2024-001",
+      "source_url": "",
+      "distance": 0.9003019332885742,
+      "relevance_score": 0.09969806671142578
+    }
+  ]
+}
