@@ -1,164 +1,199 @@
-# TikTok Geo-Compliance Classification System
+# TikTok Geo-Compliance JSON Generator
 
-🚀 **TikTok Hackathon Entry** - An AI-powered system that automatically flags product features requiring geo-specific compliance logic.
+🚀 **Sonar Integration Tool** - Generate structured JSON for automated compliance analysis with TikTok feature context and legal article retrieval.
 
-## 🎯 Problem Statement
+## 🎯 Overview
 
-TikTok operates globally and must comply with dozens of geographic regulations. This system provides automated visibility into:
-- "Does this feature require dedicated logic to comply with region-specific legal obligations?"
-- "How many features have we rolled out to ensure compliance with this regulation?"
+This tool generates structured JSON templates for Sonar to analyze whether TikTok features require geo-specific compliance. It automatically:
+- Retrieves relevant legal articles using semantic search
+- Expands TikTok internal jargon for proper context
+- Formats everything into Sonar's required JSON structure
 
-Without automated compliance screening, TikTok faces:
-- ⚖️ Legal exposure from undetected compliance gaps
-- 🛑 Reactive firefighting when regulators inquire
-- 🚧 Manual overhead in scaling global feature rollouts
+## ⚡ Quick Setup
 
-## 🌟 Solution Highlights
+### Prerequisites
+- Python 3.8+
+- 2-3 GB free disk space (for embedding models)
 
-- 🔍 **Semantic Legal Search**: Vector-based search through regulation documents
-- 🤖 **Intelligent Classification**: Determines if features need geo-compliance logic
-- 📊 **Risk Assessment**: Critical/High/Medium/Low risk scoring
-- 🏷️ **Terminology Handling**: Expands TikTok-specific jargon (ASL, GH, CDS, etc.)
-- ⚖️ **Regulation Mapping**: Links features to specific laws
-- 🔄 **Uncertainty Detection**: Flags ambiguous cases for human review
-- 💾 **Production Ready**: CSV in → CSV out, fully explainable results
-
-## ⚡ Quick Start
-
+### Installation
 ```bash
-# Setup
+# 1. Clone and setup virtual environment
+git clone <repository-url>
+cd TIKTOK-GEO-DURIAN-MEN
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# 2. Install dependencies
 pip install -r requirements.txt
 
-# Run demo (auto-builds legal knowledge base on first run)
-python3 simple_demo.py
-
-# For LLM-enhanced version:
-cp .env.example .env  # Add your API key
-python3 llm_demo.py
+# 3. Build the legal knowledge base (one-time setup, ~2-3 minutes)
+python index/build.py
 ```
 
-## 🎯 Generate Sonar JSON for Testing
-
-**NEW**: Generate optimized JSON templates for manual Sonar testing without API costs:
-
+### Verify Setup
 ```bash
-# Generate JSON for any feature
-python3 generate_sonar_json.py "Feature Title" "Feature description explaining what it does"
+# Test search functionality
+python index/smoke_test.py "Utah curfew system"
 
-# Examples:
-python3 generate_sonar_json.py "Curfew enforcement system" "Block platform access for Utah minors during night hours 10:30PM-6:00AM"
-
-python3 generate_sonar_json.py "EU content reporting" "Automated illegal content detection and reporting for European users"
-
-python3 generate_sonar_json.py "Engagement dashboard" "Internal analytics showing user interaction metrics"
+# Should return relevant legal articles about curfew requirements
 ```
 
-**What it does:**
-- 🔍 **Queries ChromaDB** automatically for relevant legal articles
-- 🏷️ **Expands TikTok jargon** (GH → geo-handler, ASL → age-sensitive logic)
-- 📄 **Generates complete JSON** with legal context and citations
-- ⚖️ **Requires reasoning** and specific article references from Sonar
-- 🎯 **Ready for testing** - copy-paste into Sonar for manual evaluation
+## 🚀 Using the JSON Generator
 
-## 📊 Demo Results
+### Basic Usage
+```bash
+python generate_sonar_compliance_json.py "Feature Title" "Feature Description"
+```
 
-The system correctly classifies test features:
+### Examples
+```bash
+# Curfew system example
+python generate_sonar_compliance_json.py "Curfew login blocker with ASL and GH for Utah minors" "To comply with the Utah Social Media Regulation Act, we are implementing a curfew-based login restriction for users under 18. The system uses ASL to detect minor accounts and routes enforcement through GH to apply only within Utah boundaries."
 
-| Feature | Classification | Risk | Regulation |
-|---------|---------------|------|------------|
-| Utah Curfew System | ✅ Compliance Required | Medium | Utah Social Media Regulation Act |
-| California Teen PF Controls | ✅ Compliance Required | Medium | California SB976 |
-| CSAM Detection | ✅ Compliance Required | **Critical** | 18 USC 2258A |
-| Creator Leaderboard | ❌ No Compliance | Low | None |
-| Universal PF Changes | ❓ Uncertain | Medium | Human Review |
+# Age verification example  
+python generate_sonar_compliance_json.py "Age verification system" "A system that verifies user age before allowing platform access"
 
-## 🏗️ Architecture
+# Data handling example
+python generate_sonar_compliance_json.py "T5 data handling with Spanner and Redline for CDS compliance" "Implementing T5 sensitive data processing using Spanner rule engine with Redline legal review flags for CDS compliance monitoring"
+```
+
+### Output
+The script generates a complete JSON structure with:
+- **TikTok jargon expansions** (ASL, GH, T5, etc.)
+- **Top 5 relevant legal articles** from the knowledge base
+- **Structured format** ready for Sonar analysis
+- **Clear constraints** requiring article-based reasoning
+
+## 🏗️ How It Works
 
 ```
-Feature Description
+Feature Title + Description
         ↓
-[Terminology Expansion] ← TikTok jargon dictionary  
+[TikTok Jargon Expansion] ← ingest/tiktok_jargons.json
         ↓
-[Legal Document Search] ← Vector DB of regulations
+[Semantic Legal Search] ← ChromaDB vector database
         ↓
-[Pattern Classification] ← Rule-based compliance detection
+[Article Retrieval] ← Top 5 most relevant legal articles
         ↓
-[Risk & Regulation ID] ← Critical/High/Medium/Low + specific laws
+[JSON Formatting] ← Structured output for Sonar
         ↓
-[CSV Output + Reasoning] ← Business-friendly results
+[Sonar Analysis] ← Determines geo-compliance requirements
 ```
 
 ## 🔧 Technologies
 
-- **FastEmbed** - Semantic embeddings for legal search
-- **ChromaDB** - Vector database for regulation documents
-- **Python** - Classification logic and pattern matching
-- **Regex** - Compliance indicator detection
-- **CSV** - Production-ready input/output format
+- **FastEmbed** - BAAI/bge-small-en-v1.5 embedding model for semantic search
+- **ChromaDB** - Vector database for legal article storage and retrieval
+- **Provence AI** - Content pruning for compliance-focused embeddings
+- **Python** - Core logic and JSON generation
+- **JSON** - Structured output format for Sonar integration
 
 ## 📁 Project Structure
 
 ```
-├── compliance/                 # Core classification system
-│   ├── simple_classifier.py      # Rule-based classifier (no LLM needed)
-│   └── llm_classifier.py         # Advanced LLM-based classifier  
-├── data/laws/                 # Legal documents with metadata
-│   ├── us_ut_social_media_act.md # Utah minor protection laws
-│   ├── us_ca_sb976.md            # California SB976 feed restrictions
-│   ├── eu_dsa.md                 # EU Digital Services Act
-│   └── ...                      # Additional regulations
-├── index/                     # Search and indexing tools
+├── data/
+│   ├── laws/                   # Legal document sources
+│   │   ├── us_ut_social_media_act.md  # Utah minor protection laws
+│   │   ├── us_ca_sb976.md             # California SB976 restrictions  
+│   │   ├── eu_dsa.md                  # EU Digital Services Act
+│   │   ├── us_fl_hb3.md               # Florida minor protections
+│   │   └── us_18usc_2258a.md          # Federal CSAM reporting
+│   └── index/chroma/           # ChromaDB vector index
+├── index/
+│   ├── build.py               # Builds the legal knowledge base
+│   └── smoke_test.py          # Interactive search testing
 ├── ingest/
-│   ├── terms.json            # TikTok terminology dictionary
-│   └── manifest.json         # Document registry
-├── generate_sonar_json.py    # 🆕 Generate JSON for Sonar testing
-├── simple_demo.py            # Main demo (works offline)
-├── llm_demo.py              # LLM-enhanced demo
-└── outputs/                 # Generated compliance reports
+│   ├── tiktok_jargons.json    # TikTok internal terminology
+│   └── manifest.json          # Document registry and metadata
+├── generate_sonar_compliance_json.py  # 🚀 Main JSON generator
+├── provence_integration.py    # Provence AI integration
+└── requirements.txt           # Python dependencies
 ```
 
-## 🎯 Key Innovations
+## 🏷️ TikTok Jargon Support
 
-### 1. **Terminology-Aware Classification**
-Handles TikTok's internal jargon:
-- `ASL` → Age-sensitive logic
-- `GH` → Geo-handler routing
-- `CDS` → Compliance detection system
-- `Jellybean` → Parental control framework
+The system automatically expands TikTok internal terminology:
 
-### 2. **Uncertainty-Aware Decisions**
-Flags ambiguous cases like "For compliance concerns, we limit feature Y in SEA, EU and JP" for human review rather than guessing.
+| Jargon | Expansion |
+|--------|-----------|
+| `ASL` | Age-sensitive logic |
+| `GH` | Geo-handler; module for routing features based on user region |
+| `T5` | Tier 5 sensitivity data; more critical than T1-T4 |
+| `Spanner` | Synthetic name for a rule engine |
+| `Redline` | Flag for legal review |
+| `ShadowMode` | Deploy feature in non-user-impact way to collect analytics |
+| `EchoTrace` | Log tracing mode to verify compliance routing |
+| `CDS` | Compliance Detection System |
 
-### 3. **Multi-Stage RAG Pipeline**
-Combines semantic search with rule-based patterns for explainable, accurate classifications.
+*Full list: 20+ terms in `ingest/tiktok_jargons.json`*
 
-### 4. **Production-Ready Output**
-CSV format with detailed reasoning, confidence scores, and source citations ready for compliance teams.
+## 📋 Example JSON Output
 
-### 5. **Sonar JSON Generation** 🆕
-Generate optimized JSON templates for manual Sonar testing:
-- **Dynamic legal retrieval** from expanded ChromaDB
-- **Enhanced reasoning requirements** with specific article citations
-- **TikTok jargon expansion** for accurate context understanding
-- **No API costs** - perfect for iterative prompt optimization
+```json
+{
+  "task": "Based solely on the provided articles, determine whether the described feature requires geo-specific compliance.",
+  "feature_title": "Curfew login blocker with ASL and GH for Utah minors",
+  "feature_description": "System using ASL to detect minor accounts and GH for Utah enforcement...",
+  "Expanded_tiktok_jargons": {
+    "ASL": "Age-sensitive logic",
+    "GH": "Geo-handler; module responsible for routing features based on user region"
+  },
+  "articles": [
+    {
+      "Law": "US-Utah",
+      "Article": "Minor Access Restrictions", 
+      "Section": "Section 13-2c-301",
+      "Content": "Social media platforms must restrict access for users under 18 between 10:30 PM and 6:00 AM..."
+    }
+  ],
+  "output_format_json": {
+    "verdict": "yes | no | uncertain",
+    "reasoning": "Concise, article-based justification, maximum 500 characters",
+    "references": ["List of relevant laws"]
+  }
+}
+```
 
-## 🚀 Business Impact
+## 🚀 Legal Coverage
 
-- **Reduce Legal Exposure**: Catch compliance gaps before global deployment
-- **Audit-Ready Evidence**: Generate traceable compliance screening records
-- **Scale Global Rollouts**: Automate geo-compliance checks for rapid iteration
-- **Lower Governance Costs**: Reduce manual legal review overhead
+Current knowledge base includes:
+- **🇺🇸 Utah Social Media Regulation Act** - Minor curfews and parental controls
+- **🇺🇸 California SB976** - Personalized feed restrictions for teens  
+- **🇺🇸 Florida HB3** - Social media age restrictions
+- **🇺🇸 18 USC 2258A** - Federal CSAM reporting requirements
+- **🇪🇺 Digital Services Act** - Content moderation and transparency
 
-## 🔜 Future Enhancements
+## 🛠️ Troubleshooting
 
-- 📱 **Code Analysis**: Scan actual feature code for geo-handlers
-- 🌍 **Expanded Coverage**: Add more jurisdictions (GDPR, Brazil, India)
-- 🤖 **LLM Integration**: Advanced reasoning with GPT-4/Claude
-- 📊 **Web Dashboard**: Compliance team interface
-- 🔄 **Learning Loop**: Improve from human feedback
+### Common Issues
+
+**IndexError: vector index not found**
+```bash
+# Rebuild the index
+python index/build.py
+```
+
+**ModuleNotFoundError**  
+```bash
+# Ensure virtual environment is activated
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+**Slow first run**
+- First-time embedding model download (~1GB)
+- ChromaDB index creation (~2-3 minutes)  
+- Subsequent runs are fast (<1 second)
+
+### Debug Mode
+```bash
+# Test search functionality
+python index/smoke_test.py
+
+# Interactive mode - try different queries
+python index/smoke_test.py
+```
 
 ---
 
-*Built for TikTok Hackathon 2024 - Automating geo-compliance to enable safer, faster global feature rollouts.* 🌍
+*Streamlined for Sonar integration - Generate compliance-aware JSON for any TikTok feature.* 🎯
