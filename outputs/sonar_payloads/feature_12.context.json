@@ -1,46 +1,46 @@
 {
   "cards": [
-    "[ctx_1] US — 18USC2258A — \"time stamps and communication logs\"",
-    "[ctx_2] US-FL — HB3 — \"## Section 501\"",
-    "[ctx_3] US-FL — HB3 — \"## Section 501\"",
-    "[ctx_4] US-FL — HB3 — \"## Section 501\""
+    "[ctx_1] California, United States — California SB976 — \"Document age verification processes\"",
+    "[ctx_2] California, United States — California SB976 — \"Platform Obligations **Age Verification:**\"",
+    "[ctx_3] California, United States — California SB976 — \"Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**\"",
+    "[ctx_4] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"Notification and disclosure requirements (1) Beginning January 1, 2024, a social media platform must conspicuously disclose the following information on the platform: (a) How the platform's algorithms and artificial intelligence curate and target content to...\""
   ],
   "passages": [
     {
-      "text": "time stamps and communication logs. (iii) Images, data, or other digital files that are reasonably necessary to contextualize the report. (iv) Complete communication, when the provider is reasonably able to preserve such communication or when such communication may provide context necessary to understand the included portions. (v) Such other relevant information as determined by the provider.",
-      "jurisdiction": "US",
-      "law": "18USC2258A",
-      "chunk_id": "us-18usc-2258a-001",
-      "source_url": "https://www.law.cornell.edu/uscode/text/18/2258A",
-      "distance": 0.7966272234916687,
-      "relevance_score": 0.2033727765083313
+      "text": "Document age verification processes",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s018",
+      "source_url": "California Legislature",
+      "distance": 0.8220570683479309,
+      "relevance_score": 0.1779429316520691
     },
     {
-      "text": "## Section 501.2042 - Restrictions on certain features for accounts held by minors\n\n(1) For any account held by a person under 16 years of age, a social media platform shall:\n   (a) Deny the minor access to the platform during the period between 10:30 p.m. and 6:00 a.m.;\n   (b) Provide a daily usage summary to the account holder and, if the account holder is under 16 years of age, to the parent or guardian;\n   (c) Allow the parent or guardian to set the specific amount of time that the minor may access the platform each day.\n(2) A social media platform may allow an account holder who is 14 or 15 years of age to access the platform during the restricted hours specified in paragraph (1)(a) if:\n   (a) The account holder's parent or guardian has approved such access; and\n   (b) The parent or guardian may revoke such approval at any time.",
-      "jurisdiction": "US-FL",
-      "law": "HB3",
-      "chunk_id": "us-fl-hb3-2024-001",
-      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
-      "distance": 0.8164776563644409,
-      "relevance_score": 0.18352234363555908
+      "text": "Platform Obligations **Age Verification:**",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s011",
+      "source_url": "California Legislature",
+      "distance": 0.8305955529212952,
+      "relevance_score": 0.16940444707870483
     },
     {
-      "text": "## Section 501.2043 - Notification and disclosure requirements\n\n(1) Beginning January 1, 2024, a social media platform must conspicuously disclose the following information on the platform:\n   (a) How the platform's algorithms and artificial intelligence curate and target content to users;\n   (b) How the platform amplifies content and the factors that most significantly determine content placement, timing, and promotion;\n   (c) Current and previous terms of service and changes to such terms with the specific changes highlighted.\n(2) A social media platform must notify a user before implementing a change to its algorithm that may result in a material change to how content is promoted, suggested, amplified, or suppressed for that user.",
-      "jurisdiction": "US-FL",
-      "law": "HB3",
-      "chunk_id": "us-fl-hb3-2024-002",
-      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
-      "distance": 0.8451366424560547,
-      "relevance_score": 0.1548633575439453
+      "text": "Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s004",
+      "source_url": "California Legislature",
+      "distance": 0.8336762189865112,
+      "relevance_score": 0.16632378101348877
     },
     {
-      "text": "## Section 501.2044 - Content moderation and parental controls\n\n(1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to:\n   (a) Monitor and control the minor's social media use;\n   (b) View and delete the account and its information, content, and communications;\n   (c) Set time limits and restrict access during certain hours;\n   (d) Receive notifications about the minor's social media activity.\n(2) For accounts held by minors, the social media platform shall:\n   (a) Use heightened privacy settings by default;\n   (b) Prohibit targeted advertising based on the personal information of the minor;\n   (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes.",
+      "text": "Notification and disclosure requirements (1) Beginning January 1, 2024, a social media platform must conspicuously disclose the following information on the platform: (a) How the platform's algorithms and artificial intelligence curate and target content to users; (b) How the platform amplifies content and the factors that most significantly determine content placement, timing, and promotion; (c) Current and previous terms of service and changes to such terms with the specific changes highlighted.",
       "jurisdiction": "US-FL",
-      "law": "HB3",
-      "chunk_id": "us-fl-hb3-2024-003",
-      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
-      "distance": 0.8732427358627319,
-      "relevance_score": 0.12675726413726807
+      "law": "Florida House Bill 3 - Social Media Platforms (extract)",
+      "chunk_id": "us_fl_hb3-s005",
+      "source_url": "",
+      "distance": 0.849291980266571,
+      "relevance_score": 0.15070801973342896
     }
   ]
 }

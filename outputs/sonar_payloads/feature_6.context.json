@@ -1,46 +1,46 @@
 {
   "cards": [
-    "[ctx_1] US — 18USC2258A — \"time stamps and communication logs\"",
-    "[ctx_2] UNKNOWN — UNKNOWN LAW — \"- Daily and weekly usage reports to parents - Screen time tracking and limits - Content interaction summaries - Alert system for concerning activities **Educational Requirements:** - Platforms must provide digital literacy resources - Safety education mater...\"",
-    "[ctx_3] UNKNOWN — UNKNOWN LAW — \"- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ...\"",
-    "[ctx_4] UNKNOWN — UNKNOWN LAW — \"Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for pla...\""
+    "[ctx_1] Utah, United States — Utah Code §13-2c-301 et seq. — \"Continuous monitoring and reporting\"",
+    "[ctx_2] California, United States — California SB976 — \"Document age verification processes\"",
+    "[ctx_3] California, United States — California SB976 — \"Multiple verification touchpoints throughout user journey **Compliance Reporting:**\"",
+    "[ctx_4] California, United States — California SB976 — \"Platforms must provide time management tools for minor users\""
   ],
   "passages": [
     {
-      "text": "time stamps and communication logs. (iii) Images, data, or other digital files that are reasonably necessary to contextualize the report. (iv) Complete communication, when the provider is reasonably able to preserve such communication or when such communication may provide context necessary to understand the included portions. (v) Such other relevant information as determined by the provider.",
-      "jurisdiction": "US",
-      "law": "18USC2258A",
-      "chunk_id": "us-18usc-2258a-001",
-      "source_url": "https://www.law.cornell.edu/uscode/text/18/2258A",
-      "distance": 0.7449897527694702,
-      "relevance_score": 0.2550102472305298
+      "text": "Continuous monitoring and reporting",
+      "jurisdiction": "Utah, United States",
+      "law": "Utah Code §13-2c-301 et seq.",
+      "chunk_id": "us_ut_social_media_act-s019",
+      "source_url": "Utah State Legislature",
+      "distance": 0.6732496023178101,
+      "relevance_score": 0.32675039768218994
     },
     {
-      "text": "- Daily and weekly usage reports to parents - Screen time tracking and limits - Content interaction summaries - Alert system for concerning activities **Educational Requirements:** - Platforms must provide digital literacy resources - Safety education materials for minors and parents - Regular safety reminders and best practices - Cyberbullying prevention information ### Section 13-2c-303 - Platform Obligations **Geographic Implementation:** - Geo-location detection for Utah users required - Compliance limited to Utah residents only - Interstate commerce considerations - Border region user verification protocols **Technical Requirements:** - Robust age verification systems - Reliable geo-location detection - Secure parental consent mechanisms - Curfew enforcement technology **Audit and Compliance:** - Regular third-party audits of safety measures - Compliance reporting to Utah Department of Commerce - Transparency reports on minor user safety - Effectiveness metrics for protection measures ### Section 13-2c-304 - Enforcement **Civil Penalties:** - First violation: Warning and 30-day compliance period - Subsequent violations: Up to $2,500 per violation per day - Pattern violations: Additional penalties up to $100,000 - Revenue-based penalties for large platforms **Consumer Protection:** - Utah Department of Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for platforms making good faith efforts",
-      "jurisdiction": "UNKNOWN",
-      "law": "UNKNOWN LAW",
-      "chunk_id": "us-ut-social-media-2024-001",
-      "source_url": "",
-      "distance": 0.7543448209762573,
-      "relevance_score": 0.24565517902374268
+      "text": "Document age verification processes",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s018",
+      "source_url": "California Legislature",
+      "distance": 0.7060600519180298,
+      "relevance_score": 0.2939399480819702
     },
     {
-      "text": "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification touchpoints throughout user journey **Compliance Reporting:** - Quarterly reports on minor user safety measures - Data on parental control feature usage - Effectiveness metrics for safety implementations **Geographic Scope:** - Applies to users located in California - Geo-location verification required for compliance determination - Interstate commerce considerations for multi-state users ### Section 22678 - Enforcement **Civil Penalties:** - Violations subject to civil penalty up to $5,000 per affected minor - Pattern violations may result in higher penalties - Attorney General enforcement authority **Private Right of Action:** - Parents may bring civil action for violations - Damages include actual harm plus statutory damages - Injunctive relief available ## Implementation Requirements **Technical Implementation:** - Geographic detection systems required - Age verification at account creation and periodically - Parental consent verification systems - Default setting enforcement mechanisms **Compliance Timeline:** - 180 days from effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets",
-      "jurisdiction": "UNKNOWN",
-      "law": "UNKNOWN LAW",
-      "chunk_id": "us-ca-sb976-2024-001",
-      "source_url": "",
-      "distance": 0.7600231766700745,
-      "relevance_score": 0.23997682332992554
+      "text": "Multiple verification touchpoints throughout user journey **Compliance Reporting:**",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s013",
+      "source_url": "California Legislature",
+      "distance": 0.7323497533798218,
+      "relevance_score": 0.2676502466201782
     },
     {
-      "text": "Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for platforms making good faith efforts - Technical limitation considerations - Reasonable implementation timeframes - Ongoing improvement requirements **Innovation Protection:** - Encouragement of new safety technologies - Flexibility in compliance methods - Recognition of evolving technical capabilities - Balance with user experience considerations ## Implementation Requirements **Phase 1 (0-90 days):** - Age verification system implementation - Geographic detection capabilities - Basic parental control features - Initial curfew enforcement mechanisms **Phase 2 (90-180 days):** - Enhanced privacy settings for minors - Comprehensive usage monitoring - Educational resource integration - Full audit system implementation **Ongoing Requirements:** - Regular safety feature updates - Continuous monitoring and reporting - Adaptation to new platform features - Stakeholder feedback incorporation This act specifically applies to social media platform operations affecting Utah residents under 18, requiring geo-specific compliance measures to protect minors while balancing free speech and innovation considerations.",
-      "jurisdiction": "UNKNOWN",
-      "law": "UNKNOWN LAW",
-      "chunk_id": "us-ut-social-media-2024-002",
-      "source_url": "",
-      "distance": 0.8164117336273193,
-      "relevance_score": 0.18358826637268066
+      "text": "Platforms must provide time management tools for minor users",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s005",
+      "source_url": "California Legislature",
+      "distance": 0.7494955062866211,
+      "relevance_score": 0.2505044937133789
     }
   ]
 }

@@ -1,46 +1,46 @@
 {
   "cards": [
-    "[ctx_1] US-FL — HB3 — \"## Section 501\"",
-    "[ctx_2] UNKNOWN — UNKNOWN LAW — \"# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Setti...\"",
-    "[ctx_3] UNKNOWN — UNKNOWN LAW — \"- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ...\"",
-    "[ctx_4] US-FL — HB3 — \"## Section 501\""
+    "[ctx_1] California, United States — California SB976 — \"Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**\"",
+    "[ctx_2] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"(2) For accounts held by minors, the social media platform shall: (a) Use heightened privacy settings by default; (b) Prohibit targeted advertising based on the personal information of the minor; (c) Prohibit the collection, use, sharing, or selling of pers...\"",
+    "[ctx_3] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"Content moderation and parental controls (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to: (a) Monitor and control the minor's social media use; (b) View and delete the account and its inf...\"",
+    "[ctx_4] California, United States — California SB976 — \"Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services\""
   ],
   "passages": [
     {
-      "text": "## Section 501.2044 - Content moderation and parental controls\n\n(1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to:\n   (a) Monitor and control the minor's social media use;\n   (b) View and delete the account and its information, content, and communications;\n   (c) Set time limits and restrict access during certain hours;\n   (d) Receive notifications about the minor's social media activity.\n(2) For accounts held by minors, the social media platform shall:\n   (a) Use heightened privacy settings by default;\n   (b) Prohibit targeted advertising based on the personal information of the minor;\n   (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes.",
+      "text": "Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s004",
+      "source_url": "California Legislature",
+      "distance": 0.6645447015762329,
+      "relevance_score": 0.3354552984237671
+    },
+    {
+      "text": "(2) For accounts held by minors, the social media platform shall: (a) Use heightened privacy settings by default; (b) Prohibit targeted advertising based on the personal information of the minor; (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes. ## Section 501.2045",
       "jurisdiction": "US-FL",
-      "law": "HB3",
-      "chunk_id": "us-fl-hb3-2024-003",
-      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
-      "distance": 0.5944492816925049,
-      "relevance_score": 0.4055507183074951
-    },
-    {
-      "text": "# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Settings for Minors **Algorithmic Feeds Restriction:** - Social media platforms must disable algorithmic or personalized feeds by default for users under 18 - Chronological feed must be the default display option - Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:** - Platforms must provide time management tools for minor users - Daily time limits must be easily configurable by parents - Notification systems to alert when limits are approached **Notification Controls:** - Push notifications to minors restricted during nighttime hours (10 PM - 6 AM) - Parents can configure notification schedules - Educational content notifications exempt from restrictions ### Section 22676 - Parental Controls **Account Oversight:** - Parents must have access to privacy settings controls - Ability to view and modify minor's account safety settings - Regular reports on minor's platform usage patterns **Content Filtering:** - Parental ability to restrict certain content categories - Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification",
-      "jurisdiction": "UNKNOWN",
-      "law": "UNKNOWN LAW",
-      "chunk_id": "us-ca-sb976-2024-000",
+      "law": "Florida House Bill 3 - Social Media Platforms (extract)",
+      "chunk_id": "us_fl_hb3-s008",
       "source_url": "",
-      "distance": 0.6186656951904297,
-      "relevance_score": 0.3813343048095703
+      "distance": 0.6661205291748047,
+      "relevance_score": 0.3338794708251953
     },
     {
-      "text": "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification touchpoints throughout user journey **Compliance Reporting:** - Quarterly reports on minor user safety measures - Data on parental control feature usage - Effectiveness metrics for safety implementations **Geographic Scope:** - Applies to users located in California - Geo-location verification required for compliance determination - Interstate commerce considerations for multi-state users ### Section 22678 - Enforcement **Civil Penalties:** - Violations subject to civil penalty up to $5,000 per affected minor - Pattern violations may result in higher penalties - Attorney General enforcement authority **Private Right of Action:** - Parents may bring civil action for violations - Damages include actual harm plus statutory damages - Injunctive relief available ## Implementation Requirements **Technical Implementation:** - Geographic detection systems required - Age verification at account creation and periodically - Parental consent verification systems - Default setting enforcement mechanisms **Compliance Timeline:** - 180 days from effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets",
-      "jurisdiction": "UNKNOWN",
-      "law": "UNKNOWN LAW",
-      "chunk_id": "us-ca-sb976-2024-001",
-      "source_url": "",
-      "distance": 0.6467821598052979,
-      "relevance_score": 0.35321784019470215
-    },
-    {
-      "text": "## Section 501.2042 - Restrictions on certain features for accounts held by minors\n\n(1) For any account held by a person under 16 years of age, a social media platform shall:\n   (a) Deny the minor access to the platform during the period between 10:30 p.m. and 6:00 a.m.;\n   (b) Provide a daily usage summary to the account holder and, if the account holder is under 16 years of age, to the parent or guardian;\n   (c) Allow the parent or guardian to set the specific amount of time that the minor may access the platform each day.\n(2) A social media platform may allow an account holder who is 14 or 15 years of age to access the platform during the restricted hours specified in paragraph (1)(a) if:\n   (a) The account holder's parent or guardian has approved such access; and\n   (b) The parent or guardian may revoke such approval at any time.",
+      "text": "Content moderation and parental controls (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to: (a) Monitor and control the minor's social media use; (b) View and delete the account and its information, content, and communications; (c) Set time limits and restrict access during certain hours; (d) Receive notifications about the minor's social media activity.",
       "jurisdiction": "US-FL",
-      "law": "HB3",
-      "chunk_id": "us-fl-hb3-2024-001",
-      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
-      "distance": 0.6526403427124023,
-      "relevance_score": 0.34735965728759766
+      "law": "Florida House Bill 3 - Social Media Platforms (extract)",
+      "chunk_id": "us_fl_hb3-s007",
+      "source_url": "",
+      "distance": 0.6765983700752258,
+      "relevance_score": 0.32340162992477417
+    },
+    {
+      "text": "Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s019",
+      "source_url": "California Legislature",
+      "distance": 0.6766752600669861,
+      "relevance_score": 0.3233247399330139
     }
   ]
 }

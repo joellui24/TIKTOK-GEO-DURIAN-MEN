@@ -35,16 +35,10 @@ Feature:
 - description: By default, PF will be turned off for all users browsing in guest mode.
 
 Retrieved legal context (top 4):
-[ctx_1] US — 18USC2258A — "## (f) Protection of privacy
-
-Nothing in this section shall be construed to require a provider
-   (1) to monitor any user, subscriber, or customer of that provider;
-   (2) to monitor the content of any communication of any person described in paragraph (1)..."
-[ctx_2] UNKNOWN — UNKNOWN LAW — "# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Setti..."
-[ctx_3] US-FL — HB3 — "## Section 501"
-[ctx_4] EU — DSA — "## Article 24 - Notification of illegal content
-
-1"
+[ctx_1] California, United States — California SB976 — "Default Settings for Minors **Algorithmic Feeds Restriction:**"
+[ctx_2] Utah, United States — Utah Code §13-2c-301 et seq. — "Regular re-verification of minor status **Default Privacy Settings:**"
+[ctx_3] California, United States — California SB976 — "Chronological feed must be the default display option"
+[ctx_4] California, United States — California SB976 — "Social media platforms must disable algorithmic or personalized feeds by default for users under 18"
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

@@ -35,14 +35,10 @@ Feature:
 - description: Introduce a creator leaderboard updated weekly using internal analytics. Points and rankings are stored in FR metadata and tracked using IMT.
 
 Retrieved legal context (top 4):
-[ctx_1] EU — DSA — "## Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines
-
-1"
-[ctx_2] US-FL — HB3 — "## Section 501"
-[ctx_3] EU — DSA — "## Article 28 - Risk assessment for very large online platforms and very large online search engines
-
-1"
-[ctx_4] UNKNOWN — UNKNOWN LAW — "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ..."
+[ctx_1] California, United States — California SB976 — "Age verification at account creation and periodically"
+[ctx_2] Utah, United States — Utah Code §13-2c-301 et seq. — "Continuous monitoring and reporting"
+[ctx_3] California, United States — California SB976 — "Chronological feed must be the default display option"
+[ctx_4] California, United States — California SB976 — "Document age verification processes"
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

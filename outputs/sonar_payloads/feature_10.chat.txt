@@ -35,12 +35,10 @@ Feature:
 - description: New suggestion logic uses PF to recommend friends, but minors are excluded from adult pools using ASL and CDS logic. EchoTrace logs interactions in case future policy gates are needed.
 
 Retrieved legal context (top 4):
-[ctx_1] UNKNOWN — UNKNOWN LAW — "# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Setti..."
-[ctx_2] EU — DSA — "## Article 34 - Transparency obligations for recommender systems
-
-1"
-[ctx_3] US-FL — HB3 — "## Section 501"
-[ctx_4] UNKNOWN — UNKNOWN LAW — "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ..."
+[ctx_1] California, United States — California SB976 — "Default Settings for Minors **Algorithmic Feeds Restriction:**"
+[ctx_2] California, United States — California SB976 — "Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**"
+[ctx_3] California, United States — California SB976 — "Parental ability to restrict certain content categories"
+[ctx_4] EU — Digital Services Act (extract) — "Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to mo..."
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

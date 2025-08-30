@@ -35,10 +35,10 @@ Feature:
 - description: Launch a PF variant in CA as part of early experimentation. Spanner will isolate affected cohorts and Glow flags will monitor feature health.
 
 Retrieved legal context (top 4):
-[ctx_1] UNKNOWN — UNKNOWN LAW — "effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental conse..."
-[ctx_2] UNKNOWN — UNKNOWN LAW — "# California SB976 - Protecting Our Kids from Social Media Addiction Act **Jurisdiction:** California, United States **Law ID:** California SB976 **Effective Date:** 2024 **Source:** California Legislature ## Key Provisions ### Section 22675 - Default Setti..."
-[ctx_3] UNKNOWN — UNKNOWN LAW — "Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for pla..."
-[ctx_4] UNKNOWN — UNKNOWN LAW — "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ..."
+[ctx_1] California, United States — California SB976 — "Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services"
+[ctx_2] Utah, United States — Utah Code §13-2c-301 et seq. — "Border region user verification protocols **Technical Requirements:**"
+[ctx_3] California, United States — California SB976 — "Reporting mechanisms for inappropriate content exposure ### Section 22677"
+[ctx_4] Utah, United States — Utah Code §13-2c-301 et seq. — "Minor Access Restrictions **Curfew Requirements:**"
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

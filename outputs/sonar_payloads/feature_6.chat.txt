@@ -35,10 +35,10 @@ Feature:
 - description: Introduce a data retention feature using DRT thresholds, ensuring automatic log deletion across all regions. CDS will continuously audit retention violations, triggering EchoTrace as necessary. Spanner logic ensures all platform modules comply uniformly.
 
 Retrieved legal context (top 4):
-[ctx_1] US — 18USC2258A — "time stamps and communication logs"
-[ctx_2] UNKNOWN — UNKNOWN LAW — "- Daily and weekly usage reports to parents - Screen time tracking and limits - Content interaction summaries - Alert system for concerning activities **Educational Requirements:** - Platforms must provide digital literacy resources - Safety education mater..."
-[ctx_3] UNKNOWN — UNKNOWN LAW — "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ..."
-[ctx_4] UNKNOWN — UNKNOWN LAW — "Commerce enforcement authority - Consumer complaint investigation process - Public reporting of enforcement actions - Industry guidance and best practice sharing ### Section 13-2c-305 - Safe Harbor Provisions **Good Faith Compliance:** - Safe harbor for pla..."
+[ctx_1] Utah, United States — Utah Code §13-2c-301 et seq. — "Continuous monitoring and reporting"
+[ctx_2] California, United States — California SB976 — "Document age verification processes"
+[ctx_3] California, United States — California SB976 — "Multiple verification touchpoints throughout user journey **Compliance Reporting:**"
+[ctx_4] California, United States — California SB976 — "Platforms must provide time management tools for minor users"
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

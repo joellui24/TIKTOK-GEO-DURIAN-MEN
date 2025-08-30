@@ -1,46 +1,46 @@
 {
   "cards": [
-    "[ctx_1] UNKNOWN — UNKNOWN LAW — \"- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age ...\"",
-    "[ctx_2] US-FL — HB3 — \"## Section 501\"",
-    "[ctx_3] US-FL — HB3 — \"## Section 501\"",
-    "[ctx_4] UNKNOWN — UNKNOWN LAW — \"effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental conse...\""
+    "[ctx_1] California, United States — California SB976 — \"Platforms must provide time management tools for minor users\"",
+    "[ctx_2] California, United States — California SB976 — \"Platform Obligations **Age Verification:**\"",
+    "[ctx_3] California, United States — California SB976 — \"Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**\"",
+    "[ctx_4] California, United States — California SB976 — \"Default Settings for Minors **Algorithmic Feeds Restriction:**\""
   ],
   "passages": [
     {
-      "text": "- Age-appropriate content verification systems - Reporting mechanisms for inappropriate content exposure ### Section 22677 - Platform Obligations **Age Verification:** - Reasonable age verification methods required - Cannot rely solely on self-reported age for users under 18 - Multiple verification touchpoints throughout user journey **Compliance Reporting:** - Quarterly reports on minor user safety measures - Data on parental control feature usage - Effectiveness metrics for safety implementations **Geographic Scope:** - Applies to users located in California - Geo-location verification required for compliance determination - Interstate commerce considerations for multi-state users ### Section 22678 - Enforcement **Civil Penalties:** - Violations subject to civil penalty up to $5,000 per affected minor - Pattern violations may result in higher penalties - Attorney General enforcement authority **Private Right of Action:** - Parents may bring civil action for violations - Damages include actual harm plus statutory damages - Injunctive relief available ## Implementation Requirements **Technical Implementation:** - Geographic detection systems required - Age verification at account creation and periodically - Parental consent verification systems - Default setting enforcement mechanisms **Compliance Timeline:** - 180 days from effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets",
-      "jurisdiction": "UNKNOWN",
-      "law": "UNKNOWN LAW",
-      "chunk_id": "us-ca-sb976-2024-001",
-      "source_url": "",
-      "distance": 0.6373409032821655,
-      "relevance_score": 0.3626590967178345
+      "text": "Platforms must provide time management tools for minor users",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s005",
+      "source_url": "California Legislature",
+      "distance": 0.668919563293457,
+      "relevance_score": 0.33108043670654297
     },
     {
-      "text": "## Section 501.2042 - Restrictions on certain features for accounts held by minors\n\n(1) For any account held by a person under 16 years of age, a social media platform shall:\n   (a) Deny the minor access to the platform during the period between 10:30 p.m. and 6:00 a.m.;\n   (b) Provide a daily usage summary to the account holder and, if the account holder is under 16 years of age, to the parent or guardian;\n   (c) Allow the parent or guardian to set the specific amount of time that the minor may access the platform each day.\n(2) A social media platform may allow an account holder who is 14 or 15 years of age to access the platform during the restricted hours specified in paragraph (1)(a) if:\n   (a) The account holder's parent or guardian has approved such access; and\n   (b) The parent or guardian may revoke such approval at any time.",
-      "jurisdiction": "US-FL",
-      "law": "HB3",
-      "chunk_id": "us-fl-hb3-2024-001",
-      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
-      "distance": 0.6764556765556335,
-      "relevance_score": 0.32354432344436646
+      "text": "Platform Obligations **Age Verification:**",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s011",
+      "source_url": "California Legislature",
+      "distance": 0.6767968535423279,
+      "relevance_score": 0.3232031464576721
     },
     {
-      "text": "## Section 501.2044 - Content moderation and parental controls\n\n(1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to:\n   (a) Monitor and control the minor's social media use;\n   (b) View and delete the account and its information, content, and communications;\n   (c) Set time limits and restrict access during certain hours;\n   (d) Receive notifications about the minor's social media activity.\n(2) For accounts held by minors, the social media platform shall:\n   (a) Use heightened privacy settings by default;\n   (b) Prohibit targeted advertising based on the personal information of the minor;\n   (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes.",
-      "jurisdiction": "US-FL",
-      "law": "HB3",
-      "chunk_id": "us-fl-hb3-2024-003",
-      "source_url": "https://www.flsenate.gov/Session/Bill/2023/3",
-      "distance": 0.6910147070884705,
-      "relevance_score": 0.30898529291152954
+      "text": "Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s004",
+      "source_url": "California Legislature",
+      "distance": 0.6771194934844971,
+      "relevance_score": 0.32288050651550293
     },
     {
-      "text": "effective date for initial compliance - Ongoing monitoring and adjustment requirements - Regular safety assessment updates **Documentation Requirements:** - Maintain records of compliance measures - Document age verification processes - Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.",
-      "jurisdiction": "UNKNOWN",
-      "law": "UNKNOWN LAW",
-      "chunk_id": "us-ca-sb976-2024-002",
-      "source_url": "",
-      "distance": 0.6917611360549927,
-      "relevance_score": 0.3082388639450073
+      "text": "Default Settings for Minors **Algorithmic Feeds Restriction:**",
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "chunk_id": "us_ca_sb976-s001",
+      "source_url": "California Legislature",
+      "distance": 0.6774946451187134,
+      "relevance_score": 0.3225053548812866
     }
   ]
 }
