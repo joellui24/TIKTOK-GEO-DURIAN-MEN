@@ -7,7 +7,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
 
 # Digital Services Act (extract)
 
-## Article 28 - Risk assessment for very large online platforms and very large online search engines
+### _Article 28 - Risk assessment for very large online platforms and very large online search engines_
 
 1. Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular:
    
@@ -19,11 +19,11 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
        - the submission of illegal content, including by inauthentic use or automated exploitation of the service;
        - inauthentic or abusive behavior that may lead to the rapid and wide dissemination of information that is illegal content or incompatible with their terms and conditions;
 
-## Article 34 - Transparency obligations for recommender systems
+### _Article 34 - Transparency obligations for recommender systems_
 
 1. Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to modify or influence those main parameters.
 
-## Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines
+### _Article 35 - Additional risk mitigation measures for very large online platforms and very large online search engines_
 
 1. Where the risk assessment carried out in accordance with Article 28 reveals one or more systemic risks, providers of very large online platforms and very large online search engines shall put in place reasonable, proportionate and effective mitigation measures, tailored to the specific systemic risks identified.
 
@@ -36,7 +36,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
    (f) adapting recommender systems or advertising systems;
    (g) improving the user reporting and redress systems.
 
-## Article 16 - Orders to act against illegal content
+### _Article 16 - Orders to act against illegal content_
 
 1. Upon receipt of an order issued by the relevant judicial or administrative authorities of a Member State, based on the applicable Union or national law, in conformity with Union law, providers of intermediary services shall, without undue delay, inform the issuing authority of the receipt of the order and of the effect given to it.
 
@@ -45,7 +45,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
    (b) one or more exact uniform resource locators (URLs) and, where necessary, additional information enabling the identification of the illegal content concerned;
    (c) information about redress available to the provider and to the recipient of the service whose content is affected by the order.
 
-## Article 24 - Notification of illegal content
+### _Article 24 - Notification of illegal content_
 
 1. Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content.
 
@@ -57,7 +57,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
    (c) the name and electronic mail address of the notifier, except in the case of information considered to involve one of the offences referred to in Articles 3 to 7 of Directive 2011/93/EU;
    (d) a statement confirming the bona fide belief of the notifier that the information and allegations contained in the notification are accurate and complete.
 
-## Article 25 - Processing of notices
+### _Article 25 - Processing of notices_
 
 1. Where a provider of hosting services receives a notice through the mechanisms referred to in Article 24(1), it shall, without undue delay, assess the notice and any accompanying material, and, where applicable, the relevant content to which the notice relates, in a timely, diligent, non-arbitrary and objective manner.
 
@@ -65,7 +65,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
 
 ## Additional Context and Geographic Implementation
 
-### Article 26 - Content Moderation Policies and Geographic Scope
+### _Article 26 - Content Moderation Policies and Geographic Scope_
 
 **EU-Specific Requirements:**
 - Content moderation must comply with Member State laws
@@ -79,7 +79,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
 - Cross-border coordination between EU Member States required
 - Non-EU platforms serving EU users must comply with DSA requirements
 
-### Article 27 - Transparency Reporting for EU Operations
+### _Article 27 - Transparency Reporting for EU Operations_
 
 **Mandatory Reporting Elements:**
 - Number of content removals by Member State
@@ -93,7 +93,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
 - Data localization requirements for EU user information
 - Cross-border data transfer restrictions within compliance framework
 
-### Article 38 - Risk Management for Very Large Online Platforms
+### _Article 38 - Risk Management for Very Large Online Platforms_
 
 **EU-Specific Systemic Risk Assessment:**
 - Impact assessment on fundamental rights in EU context
@@ -107,7 +107,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
 - Cultural sensitivity in algorithmic content promotion
 - Coordination with EU institutions on emerging threats
 
-### Article 40 - External Auditing Requirements
+### _Article 40 - External Auditing Requirements_
 
 **Independent Audit Framework:**
 - Annual audits by EU-recognized auditing bodies
@@ -121,7 +121,7 @@ source_url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=celex%3A32022R20
 - Adequacy of user redress mechanisms
 - Transparency and accountability of algorithmic systems
 
-### Article 42 - Crisis Response Mechanism
+### _Article 42 - Crisis Response Mechanism_
 
 **EU Crisis Coordination:**
 - Rapid response to threats affecting multiple Member States
@@ -142,13 +142,13 @@ This framework ensures comprehensive digital services regulation across the Euro
    (d) taking action related to advertising systems;
    (e) pursuing awareness-raising initiatives and adapting interfaces to enable user empowerment and literacy.
 
-## Article 24 - Notification of illegal content
+### _Article 24 - Notification of illegal content_
 
 1. Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content.
 
 2. The mechanisms referred to in paragraph 1 shall be user-friendly and allow for the submission of notices exclusively by electronic means. It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broadly understood by the largest possible number of speakers in the Union.
 
-## Article 25 - Processing of notices
+### _Article 25 - Processing of notices_
 
 1. Upon receiving a notice through the mechanisms referred to in Article 24(1), providers of hosting services shall:
    (a) process the notice without undue delay;

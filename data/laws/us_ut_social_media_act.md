@@ -1,53 +1,66 @@
-# Utah Social Media Regulation Act
+---
+law_name: Utah Social Media Regulation Act
+jurisdiction: US-Utah
+law_id: Utah Code §13-2c-301 et seq.
+effective_date: 2024-01-01
+source: Utah State Legislature
+geo_scope: Utah residents under 18
+---
 
-**Jurisdiction:** Utah, United States  
-**Law ID:** Utah Code §13-2c-301 et seq.  
-**Effective Date:** 2024  
-**Source:** Utah State Legislature  
+# Utah Social Media Regulation Act - Minor Protection Requirements
 
-## Key Provisions
+## Metadata
+- **Law Name**: Utah Social Media Regulation Act
+- **Jurisdiction**: Utah, United States
+- **Law ID**: Utah Code §13-2c-301 et seq.
+- **Effective Date**: 2024
+- **Geographic Scope**: Utah residents under 18
 
-### Section 13-2c-301 - Minor Access Restrictions
+### _Section 13-2c-301 - Minor Access Restrictions_
 
-**Curfew Requirements:**
+### Key Requirements
 - Social media platforms must restrict access for users under 18 between 10:30 PM and 6:00 AM
-- Automatic logout or access blocking during restricted hours
-- Parental override capability with explicit consent
-- Time zone compliance based on user's Utah location
-
-**Account Verification:**
+- Platforms must implement automatic logout or access blocking during restricted hours
 - Age verification required for all Utah residents
 - Parental consent mandatory for users under 18
+- Private accounts by default for users under 18
+- Restricted direct messaging from unknown users for minors
+
+### Geographic Enforcement  
+- Time zone compliance based on user's Utah location
+- Geo-location detection for Utah users required
+- Compliance limited to Utah residents only
+
+### Implementation Details
+- Parental override capability with explicit consent
 - Identity verification for parent/guardian providing consent
 - Regular re-verification of minor status
-
-**Default Privacy Settings:**
-- Private accounts by default for users under 18
 - Limited discoverability for minor accounts
-- Restricted direct messaging from unknown users
 - Enhanced content filtering for age-appropriate material
 
-### Section 13-2c-302 - Parental Controls
+### _Section 13-2c-302 - Parental Controls_
 
-**Account Access:**
-- Parents have right to access minor's account information
-- Messaging history available to parents upon request
+### Key Requirements
+- Parents must have right to access minor's account information
+- Messaging history must be available to parents upon request
+- Platforms must provide daily and weekly usage reports to parents
+- Platforms must provide digital literacy resources
+- Safety education materials must be provided for minors and parents
+
+### Geographic Enforcement
+- Parental control requirements apply to Utah residents only
+- Parent verification must confirm Utah residency
+
+### Implementation Details
 - Friend/follower list visibility to parents
 - Settings modification rights for parents
-
-**Usage Monitoring:**
-- Daily and weekly usage reports to parents
 - Screen time tracking and limits
 - Content interaction summaries
 - Alert system for concerning activities
-
-**Educational Requirements:**
-- Platforms must provide digital literacy resources
-- Safety education materials for minors and parents
 - Regular safety reminders and best practices
 - Cyberbullying prevention information
 
-### Section 13-2c-303 - Platform Obligations
+### _Section 13-2c-303 - Platform Obligations_
 
 **Geographic Implementation:**
 - Geo-location detection for Utah users required
@@ -67,7 +80,7 @@
 - Transparency reports on minor user safety
 - Effectiveness metrics for protection measures
 
-### Section 13-2c-304 - Enforcement
+### _Section 13-2c-304 - Enforcement_
 
 **Civil Penalties:**
 - First violation: Warning and 30-day compliance period
@@ -81,7 +94,7 @@
 - Public reporting of enforcement actions
 - Industry guidance and best practice sharing
 
-### Section 13-2c-305 - Safe Harbor Provisions
+### _Section 13-2c-305 - Safe Harbor Provisions_
 
 **Good Faith Compliance:**
 - Safe harbor for platforms making good faith efforts
@@ -119,7 +132,7 @@ This act specifically applies to social media platform operations affecting Utah
 
 ## Additional Context and Implementation Guidance
 
-### Section 13-2c-306 - Data Protection and Privacy
+### _Section 13-2c-306 - Data Protection and Privacy_
 
 **Minor Data Handling:**
 - Special protection for personal data of users under 18
@@ -134,7 +147,7 @@ This act specifically applies to social media platform operations affecting Utah
 - Cross-border data transfer restrictions for Utah minors
 - Data retention limits for location information
 
-### Section 13-2c-307 - Content Moderation Obligations
+### _Section 13-2c-307 - Content Moderation Obligations_
 
 **Age-Appropriate Content:**
 - Enhanced content filtering algorithms for Utah minors
@@ -148,7 +161,7 @@ This act specifically applies to social media platform operations affecting Utah
 - Escalation procedures for repeated violations
 - Transparency reports on content moderation effectiveness
 
-### Section 13-2c-308 - Platform Design Requirements
+### _Section 13-2c-308 - Platform Design Requirements_
 
 **User Interface Obligations:**
 - Age verification prompts must be clear and prominent
@@ -162,7 +175,7 @@ This act specifically applies to social media platform operations affecting Utah
 - Reduced recommendation algorithm intensity for minor users
 - Mandatory break prompts after continuous usage periods
 
-### Section 13-2c-309 - Cross-Platform Coordination
+### _Section 13-2c-309 - Cross-Platform Coordination_
 
 **Industry Collaboration:**
 - Information sharing on best practices for minor protection
@@ -176,7 +189,7 @@ This act specifically applies to social media platform operations affecting Utah
 - Reciprocal enforcement agreements for cross-border violations
 - Harmonization efforts to reduce platform compliance burden
 
-### Section 13-2c-310 - Appeal and Review Processes
+### _Section 13-2c-310 - Appeal and Review Processes_
 
 **User Appeal Rights:**
 - Right to appeal age verification decisions

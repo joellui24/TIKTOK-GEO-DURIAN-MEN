@@ -13,6 +13,34 @@ ROOT = Path(__file__).resolve().parents[1]
 INDEX_DIR = ROOT / "data" / "index" / "chroma"
 EMBED_MODEL = "BAAI/bge-small-en-v1.5"
 
+def get_snippet_until_header(text: str, max_chars: int = None) -> str:
+    """Extract content between section headers, excluding the header line itself"""
+    lines = text.split('\n')
+    snippet_lines = []
+    
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        
+        # Skip the first line if it's a section header
+        if i == 0 and (
+            stripped.startswith('## ') or 
+            (stripped.startswith('### _') and stripped.endswith('_') and
+             ('Article' in stripped or 'Section' in stripped or '(' in stripped))
+        ):
+            continue
+            
+        # Stop at next italic article/section header
+        if i > 0 and (
+            stripped.startswith('## ') or 
+            (stripped.startswith('### _') and stripped.endswith('_') and
+             ('Article' in stripped or 'Section' in stripped or '(' in stripped))
+        ):
+            break
+            
+        snippet_lines.append(line)
+    
+    return '\n'.join(snippet_lines).strip()
+
 def load_index_metadata():
     """Load index metadata"""
     metadata_path = INDEX_DIR / "metadata.json"
@@ -60,8 +88,13 @@ def search_index(query: str, top_k: int = 5) -> List[Dict]:
             "distance": distance,
             "jurisdiction": meta.get("jurisdiction", ""),
             "law": meta.get("law", ""),
+            "article_number": meta.get("article_number", ""),
+            "article_title": meta.get("article_title", ""),
+            "parent_section": meta.get("parent_section", ""),
+            "section_description": meta.get("section_description", ""),
+            "chunk_type": meta.get("chunk_type", ""),
             "source_url": meta.get("source_url", ""),
-            "snippet": doc[:200] + ("..." if len(doc) > 200 else ""),
+            "snippet": get_snippet_until_header(doc),
             "full_text": doc
         })
     
@@ -104,8 +137,29 @@ def interactive_mode():
             
             for result in results:
                 print(f"[{result['rank']}] {result['chunk_id']} (distance: {result['distance']:.4f})")
-                print(f"    Law: {result['jurisdiction']} {result['law']}")
-                print(f"    Snippet: {result['snippet']}")
+                
+                # Enhanced display with article-based metadata
+                law_info = f"{result['jurisdiction']} {result['law']}".strip()
+                if law_info:
+                    print(f"    Law: {law_info}")
+                
+                if result['article_number']:
+                    article_display = result['article_number']
+                    if result['article_title']:
+                        article_display += f" - {result['article_title']}"
+                    print(f"    Article: {article_display}")
+                
+                if result['parent_section'] and result['parent_section'] != "Document Content":
+                    section_display = result['parent_section']
+                    if result['section_description']:
+                        section_display += f" ({result['section_description']})"
+                    print(f"    Section: {section_display}")
+                
+                if result['chunk_type']:
+                    print(f"    Type: {result['chunk_type']}")
+                
+                print(f"    Content: {result['snippet']}")
+                
                 if result['source_url']:
                     print(f"    Source: {result['source_url']}")
                 print()
@@ -131,8 +185,29 @@ def single_query_mode(query: str, top_k: int = 5):
         
         for result in results:
             print(f"\n[{result['rank']}] {result['chunk_id']} (distance: {result['distance']:.4f})")
-            print(f"Law: {result['jurisdiction']} {result['law']}")
-            print(f"Text: {result['snippet']}")
+            
+            # Enhanced display with article-based metadata
+            law_info = f"{result['jurisdiction']} {result['law']}".strip()
+            if law_info:
+                print(f"Law: {law_info}")
+            
+            if result['article_number']:
+                article_display = result['article_number']
+                if result['article_title']:
+                    article_display += f" - {result['article_title']}"
+                print(f"Article: {article_display}")
+            
+            if result['parent_section'] and result['parent_section'] != "Document Content":
+                section_display = result['parent_section']
+                if result['section_description']:
+                    section_display += f" ({result['section_description']})"
+                print(f"Section: {section_display}")
+            
+            if result['chunk_type']:
+                print(f"Type: {result['chunk_type']}")
+            
+            print(f"Content: {result['snippet']}")
+            
             if result['source_url']:
                 print(f"Source: {result['source_url']}")
         

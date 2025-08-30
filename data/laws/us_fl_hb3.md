@@ -7,7 +7,7 @@ source_url: https://www.flsenate.gov/Session/Bill/2023/3
 
 # Florida House Bill 3 - Social Media Platforms (extract)
 
-## Section 501.2041 - Age verification and parental consent requirements
+### _Section 501.2041 - Age verification and parental consent requirements_
 
 (1) A social media platform may not permit a person under 14 years of age to create or maintain a social media account.
 
@@ -17,7 +17,7 @@ source_url: https://www.flsenate.gov/Session/Bill/2023/3
 
 (3) A social media platform shall verify the age of account holders and obtain parental consent by using a method that is effective in ensuring that an individual creating a social media account meets the age requirements of this section.
 
-## Section 501.2042 - Restrictions on certain features for accounts held by minors
+### _Section 501.2042 - Restrictions on certain features for accounts held by minors_
 
 (1) For any account held by a person under 16 years of age, a social media platform shall:
    (a) Deny the minor access to the platform during the period between 10:30 p.m. and 6:00 a.m.;
@@ -28,7 +28,7 @@ source_url: https://www.flsenate.gov/Session/Bill/2023/3
    (a) The account holder's parent or guardian has approved such access; and
    (b) The parent or guardian may revoke such approval at any time.
 
-## Section 501.2043 - Notification and disclosure requirements
+### _Section 501.2043 - Notification and disclosure requirements_
 
 (1) Beginning January 1, 2024, a social media platform must conspicuously disclose the following information on the platform:
    (a) How the platform's algorithms and artificial intelligence curate and target content to users;
@@ -37,7 +37,7 @@ source_url: https://www.flsenate.gov/Session/Bill/2023/3
 
 (2) A social media platform must notify a user before implementing a change to its algorithm that may result in a material change to how content is promoted, suggested, amplified, or suppressed for that user.
 
-## Section 501.2044 - Content moderation and parental controls
+### _Section 501.2044 - Content moderation and parental controls_
 
 (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to:
    (a) Monitor and control the minor's social media use;
@@ -50,7 +50,7 @@ source_url: https://www.flsenate.gov/Session/Bill/2023/3
    (b) Prohibit targeted advertising based on the personal information of the minor;
    (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes.
 
-## Section 501.2045 - Enforcement and penalties
+### _Section 501.2045 - Enforcement and penalties_
 
 (1) A violation of this part constitutes an unfair or deceptive trade practice under part II of this chapter.
 
