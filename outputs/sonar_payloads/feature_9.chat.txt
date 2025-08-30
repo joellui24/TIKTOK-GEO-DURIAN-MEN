@@ -5,9 +5,9 @@ Return ONE JSON object that matches the provided JSON Schema. No extra text, no 
 Decision policy:
 - “Geo-specific” = any legal obligation scoped to a jurisdictional subset (e.g., EU users, US federal scope, Utah minors, California teens). Harmonized regional laws count.
 - Say "yes" ONLY if at least one context item states a concrete legal obligation containing one of:
-  shall|must|required|prohibited|consent|verify|report|age verification|curfew.
+  shall|must|required|prohibited|consent|verify|report|age verification|curfew|restrict.
 - Prefer citations whose jurisdiction matches the feature’s stated geo. Tie-breaker:
-  exact match > regional (EU/US federal) > adjacent/analog US state > unrelated.
+  exact match > regional (EU/US federal) > adjacent/analog state > unrelated.
 - Say "no" for business/UX/experiments/analytics/monetization with no legal trigger.
 - Say "uncertain" if no obligation sentence is present, or info is insufficient/conflicting.
 - Do not invent laws. Cite only provided context IDs in “citations”.
@@ -35,10 +35,10 @@ Feature:
 - description: We’re expanding chat features, but for users flagged by Jellybean, certain functions (e.g., media sharing) will be limited. BB and ASL will monitor compliance posture.
 
 Retrieved legal context (top 4):
-[ctx_1] California, United States — California SB976 — "Parental ability to restrict certain content categories"
-[ctx_2] California, United States — California SB976 — "Default Settings for Minors **Algorithmic Feeds Restriction:**"
-[ctx_3] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — "Content moderation and parental controls (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to: (a) Monitor and control the minor's social media use; (b) View and delete the account and its inf..."
-[ctx_4] Utah, United States — Utah Code §13-2c-301 et seq. — "Regular re-verification of minor status **Default Privacy Settings:**"
+[ctx_1] EU — Digital Services Act (extract) — "It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broad..."
+[ctx_2] EU — Digital Services Act (extract) — "Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to mo..."
+[ctx_3] EU — Digital Services Act (extract) — "Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content"
+[ctx_4] EU — Digital Services Act (extract) — "Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the w..."
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

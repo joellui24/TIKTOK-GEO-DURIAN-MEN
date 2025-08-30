@@ -7,22 +7,16 @@ Build a Chroma vector index for 'laws' with sentence-level, obligation-focused c
 - Reads source texts from: data/laws/*.md (also .txt supported)
 - Extracts metadata (jurisdiction, law, source_url) from file content or filename
 - Splits into sentences and **keeps only sentences that look like legal obligations**
-  (shall|must|required|prohibited|consent|verify|report|age verification|curfew)
+  (shall|must|required|prohibited|consent|verify|report|age verification|curfew|restrict)
 - Adds each sentence to Chroma with metadata and a stable chunk_id
-
-This index is used by:
-  scripts/build_sonar_payloads.py  (retrieval for payload context cards)
-  llm_classifier.py                (retrieval-augmented classification)
+- Stores normalized geo fields to enable jurisdiction-first retrieval
 
 Usage:
-  python index/build.py
-  (or it will be called programmatically via build_index())
+  python3 index/build.py
 """
 
 from __future__ import annotations
-import os
 import re
-import json
 from pathlib import Path
 from typing import List, Dict, Tuple
 
@@ -32,7 +26,7 @@ from fastembed import TextEmbedding
 # ---------------------- Config ----------------------
 
 ROOT = Path(__file__).resolve().parents[1]
-LAWS_DIR = ROOT / "data" / "laws"          # source documents
+LAWS_DIR = ROOT / "data" / "laws"           # source documents
 INDEX_DIR = ROOT / "data" / "index" / "chroma"
 COLLECTION_NAME = "laws"
 EMBED_MODEL = "BAAI/bge-small-en-v1.5"
@@ -47,6 +41,36 @@ OBLIGATION_REGEX = re.compile(
 # Soft guard to avoid over-long chunks
 MAX_SENT_LEN = 600  # chars
 MIN_SENT_LEN = 20   # chars (skip too-short fragments)
+
+# ---------------------- Geo helpers ----------------------
+
+_US_STATES = {
+    "UT": "Utah", "CA": "California", "FL": "Florida", "NY": "New York", "TX": "Texas",
+    # extend as needed
+}
+
+def _norm(s: str) -> str:
+    return re.sub(r"\s+", " ", (s or "").strip()).lower()
+
+def parse_jurisdiction(j: str) -> Dict[str, str]:
+    """
+    Returns normalized fields: juris_norm, country, state, region.
+    e.g., "Utah, United States" -> country="united states", state="utah", region="us"
+          "European Union" -> region="eu"
+    """
+    jn = _norm(j)
+    country = state = region = ""
+    if "european union" in jn or jn == "eu":
+        region = "eu"
+    if "united states" in jn or jn in {"usa", "us"}:
+        country = "united states"; region = "us"
+    for abbr, name in _US_STATES.items():
+        if name.lower() in jn or f"us-{abbr.lower()}" in jn:
+            state = name.lower()
+            if not country:
+                country = "united states"; region = "us"
+            break
+    return {"juris_norm": jn, "country": country, "state": state, "region": region}
 
 # ---------------------- Utilities ----------------------
 
@@ -82,16 +106,14 @@ def extract_frontmatter(text: str) -> Dict[str, str]:
     """
     meta = {"jurisdiction": "", "law": "", "source_url": ""}
     for line in text.splitlines()[:80]:  # only scan header-ish part
-        s = line.strip()
-        # Normalize markdown bold markers
-        s = s.replace("**", "")
-        if s.lower().startswith("jurisdiction:"):
+        s = line.strip().replace("**", "")
+        low = s.lower()
+        if low.startswith("jurisdiction:"):
             meta["jurisdiction"] = s.split(":", 1)[1].strip()
-        elif s.lower().startswith("law id:"):
+        elif low.startswith("law id:"):
             meta["law"] = s.split(":", 1)[1].strip()
-        elif s.lower().startswith("source:"):
+        elif low.startswith("source:"):
             meta["source_url"] = s.split(":", 1)[1].strip()
-        # Fallbacks for common headings
         elif s.startswith("# "):
             # H1 as law name if nothing else
             title = s[2:].strip()
@@ -109,12 +131,9 @@ def infer_meta_from_filename(path: Path) -> Dict[str, str]:
     stem = path.stem
     juris = ""
     law = stem.replace("_", " ").replace("-", " ").strip()
-    # Simple US state mapping if prefixed like 'US-UT-...'
     m = re.match(r"([A-Za-z]{2})-([A-Za-z]{2})-", stem)
     if m and m.group(1).upper() == "US":
-        # crude map of US states; keep it minimal to avoid hard deps
-        STATES = {"UT": "Utah", "CA": "California", "FL": "Florida", "NY": "New York", "TX": "Texas"}
-        st = STATES.get(m.group(2).upper())
+        st = _US_STATES.get(m.group(2).upper())
         if st:
             juris = f"{st}, United States"
     return {"jurisdiction": juris, "law": law, "source_url": ""}
@@ -128,20 +147,12 @@ def normalize_meta(file_meta: Dict[str, str], name_meta: Dict[str, str]) -> Dict
 
 
 def split_sentences(text: str) -> List[str]:
-    """
-    Lightweight sentence splitter (regex-based).
-    Good enough for legal prose without adding heavy NLP deps.
-    """
-    # Normalize whitespace
+    """Regex sentence splitter (lightweight)."""
     text = re.sub(r"\s+", " ", text.strip())
-    # Split on ., !, ? followed by space and capital OR end of text
-    # Keep the delimiter
     parts = re.split(r"(?<=[\.\!\?])\s+(?=[A-Z0-9\"(])", text)
-    # Also split on '•' or '-' list bullets into separate "sentences"
     out: List[str] = []
     for p in parts:
-        # Break bullet-style lists further
-        bullets = re.split(r"(?:^|\s)[\-\u2022]\s+", p)
+        bullets = re.split(r"(?:^|\s)[\-\u2022]\s+", p)  # split bullet lists
         for b in bullets:
             s = b.strip()
             if s:
@@ -150,9 +161,7 @@ def split_sentences(text: str) -> List[str]:
 
 
 def extract_obligation_sentences(text: str) -> List[str]:
-    """
-    Return only sentences that match obligation keywords.
-    """
+    """Return only sentences that match obligation keywords."""
     sents = split_sentences(text)
     kept: List[str] = []
     for s in sents:
@@ -165,23 +174,24 @@ def extract_obligation_sentences(text: str) -> List[str]:
 
 def ensure_collection() -> chromadb.Collection:
     client = chromadb.PersistentClient(path=str(INDEX_DIR))
-    # If collection exists, drop and recreate to avoid dupes/stale data
+    # fresh rebuild to avoid dupes/stale data
     try:
         client.delete_collection(COLLECTION_NAME)
     except Exception:
         pass
     return client.create_collection(name=COLLECTION_NAME)
 
-
 # ---------------------- Build ----------------------
 
 def build_index() -> None:
-    """
-    Build (or rebuild) the 'laws' collection with obligation-focused sentence chunks.
-    """
+    """Build (or rebuild) the 'laws' collection with obligation-focused sentence chunks."""
     INDEX_DIR.mkdir(parents=True, exist_ok=True)
     collection = ensure_collection()
-    embedding = TextEmbedding(model_name=EMBED_MODEL)
+
+    # Load embedder once
+    embedder = TextEmbedding(model_name=EMBED_MODEL)
+    # warmup (first call may trigger download)
+    _ = list(embedder.embed(["warmup"]))
 
     sources = read_sources()
 
@@ -196,11 +206,10 @@ def build_index() -> None:
         file_meta = extract_frontmatter(text)
         name_meta = infer_meta_from_filename(path)
         meta_base = normalize_meta(file_meta, name_meta)
+        geo = parse_jurisdiction(meta_base["jurisdiction"])
 
-        # Use only obligation-style sentences to tighten retrieval
+        # obligation-only sentences (fallback to first 2 if none)
         sentences = extract_obligation_sentences(text)
-
-        # If none found, fall back to first ~2 sentences so doc is still represented
         if not sentences:
             sents = split_sentences(text)[:2]
             sentences = [s for s in sents if MIN_SENT_LEN <= len(s) <= MAX_SENT_LEN]
@@ -215,19 +224,20 @@ def build_index() -> None:
                 "law": meta_base["law"],
                 "source_url": meta_base["source_url"],
                 "file": str(path.relative_to(ROOT)),
+                "is_obligation": bool(OBLIGATION_REGEX.search(sent)),
+                **geo
             })
 
             # embed
-            vec = list(embedding.embed([sent]))[0]
-            embs.append(vec)
+            embs.append(list(embedder.embed([sent]))[0])
 
-            # Flush in batches to keep memory steady
+            # flush in batches
             if len(ids) >= 512:
                 collection.add(ids=ids, documents=docs, metadatas=metas, embeddings=embs)
                 total_added += len(ids)
                 ids, docs, metas, embs = [], [], [], []
 
-        # Optional: also index a short "law summary" header if present and reasonably informative
+        # Optional header summary
         h1 = first_line(text)
         if h1.startswith("# "):
             summary = h1[2:].strip()
@@ -241,21 +251,19 @@ def build_index() -> None:
                     "law": meta_base["law"],
                     "source_url": meta_base["source_url"],
                     "file": str(path.relative_to(ROOT)),
-                    "is_header": True
+                    "is_header": True,
+                    "is_obligation": bool(OBLIGATION_REGEX.search(summary)),
+                    **geo
                 })
-                vec = list(embedding.embed([docs[-1]]))[0]
-                embs.append(vec)
+                embs.append(list(embedder.embed([docs[-1]]))[0])
 
-        # Batch flush per file too
+        # flush per-file too
         if ids:
             collection.add(ids=ids, documents=docs, metadatas=metas, embeddings=embs)
             total_added += len(ids)
             ids, docs, metas, embs = [], [], [], []
 
     print(f"✅ Indexed {total_added} chunks into collection '{COLLECTION_NAME}' at {INDEX_DIR}")
-
-
-# ---------------------- CLI ----------------------
 
 def main():
     build_index()

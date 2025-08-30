@@ -1,46 +1,49 @@
 {
+  "used_jurisdiction": "Utah, United States",
+  "explicit_jurisdiction": "",
+  "inferred_jurisdiction": "Utah, United States",
   "cards": [
     "[ctx_1] Utah, United States — Utah Code §13-2c-301 et seq. — \"Minor Access Restrictions **Curfew Requirements:**\"",
-    "[ctx_2] Utah, United States — Utah Code §13-2c-301 et seq. — \"Utah Social Media Regulation Act\"",
-    "[ctx_3] Utah, United States — Utah Code §13-2c-301 et seq. — \"Social media platforms must restrict access for users under 18 between 10:30 PM and 6:00 AM\"",
-    "[ctx_4] Utah, United States — Utah Code §13-2c-301 et seq. — \"Time zone compliance based on user's Utah location **Account Verification:**\""
+    "[ctx_2] Utah, United States — Utah Code §13-2c-301 et seq. — \"Social media platforms must restrict access for users under 18 between 10:30 PM and 6:00 AM\"",
+    "[ctx_3] Utah, United States — Utah Code §13-2c-301 et seq. — \"Time zone compliance based on user's Utah location **Account Verification:**\"",
+    "[ctx_4] Utah, United States — Utah Code §13-2c-301 et seq. — \"Age verification required for all Utah residents\""
   ],
   "passages": [
     {
+      "id": "us_ut_social_media_act-s001",
       "text": "Minor Access Restrictions **Curfew Requirements:**",
-      "jurisdiction": "Utah, United States",
-      "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s001",
-      "source_url": "Utah State Legislature",
       "distance": 0.43490391969680786,
-      "relevance_score": 0.5650960803031921
-    },
-    {
-      "text": "Utah Social Media Regulation Act",
       "jurisdiction": "Utah, United States",
       "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-hdr",
       "source_url": "Utah State Legislature",
-      "distance": 0.5160919427871704,
-      "relevance_score": 0.4839080572128296
+      "file": "data/laws/us_ut_social_media_act.md"
     },
     {
+      "id": "us_ut_social_media_act-s002",
       "text": "Social media platforms must restrict access for users under 18 between 10:30 PM and 6:00 AM",
+      "distance": 0.5206336975097656,
       "jurisdiction": "Utah, United States",
       "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s002",
       "source_url": "Utah State Legislature",
-      "distance": 0.5206336975097656,
-      "relevance_score": 0.4793663024902344
+      "file": "data/laws/us_ut_social_media_act.md"
     },
     {
+      "id": "us_ut_social_media_act-s004",
       "text": "Time zone compliance based on user's Utah location **Account Verification:**",
+      "distance": 0.5234873294830322,
       "jurisdiction": "Utah, United States",
       "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s004",
       "source_url": "Utah State Legislature",
-      "distance": 0.5234873294830322,
-      "relevance_score": 0.4765126705169678
+      "file": "data/laws/us_ut_social_media_act.md"
+    },
+    {
+      "id": "us_ut_social_media_act-s005",
+      "text": "Age verification required for all Utah residents",
+      "distance": 0.5436303615570068,
+      "jurisdiction": "Utah, United States",
+      "law": "Utah Code §13-2c-301 et seq.",
+      "source_url": "Utah State Legislature",
+      "file": "data/laws/us_ut_social_media_act.md"
     }
   ]
 }

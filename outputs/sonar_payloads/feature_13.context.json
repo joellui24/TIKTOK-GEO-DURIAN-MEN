@@ -1,46 +1,49 @@
 {
+  "used_jurisdiction": "European Union",
+  "explicit_jurisdiction": "",
+  "inferred_jurisdiction": "European Union",
   "cards": [
-    "[ctx_1] California, United States — California SB976 — \"Age verification at account creation and periodically\"",
-    "[ctx_2] Utah, United States — Utah Code §13-2c-301 et seq. — \"Continuous monitoring and reporting\"",
-    "[ctx_3] California, United States — California SB976 — \"Chronological feed must be the default display option\"",
-    "[ctx_4] California, United States — California SB976 — \"Document age verification processes\""
+    "[ctx_1] EU — Digital Services Act (extract) — \"Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to mo...\"",
+    "[ctx_2] EU — Digital Services Act (extract) — \"Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the w...\"",
+    "[ctx_3] EU — Digital Services Act (extract) — \"It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broad...\"",
+    "[ctx_4] EU — Digital Services Act (extract) — \"Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content\""
   ],
   "passages": [
     {
-      "text": "Age verification at account creation and periodically",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s016",
-      "source_url": "California Legislature",
-      "distance": 0.7300489544868469,
-      "relevance_score": 0.2699510455131531
+      "id": "eu_dsa-s002",
+      "text": "Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to modify or influence those main parameters. ## Article 35",
+      "distance": 0.9793608784675598,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     },
     {
-      "text": "Continuous monitoring and reporting",
-      "jurisdiction": "Utah, United States",
-      "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s019",
-      "source_url": "Utah State Legislature",
-      "distance": 0.7634662389755249,
-      "relevance_score": 0.2365337610244751
+      "id": "eu_dsa-s001",
+      "text": "Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the way in which their algorithmic systems amplify certain risks, such as:",
+      "distance": 1.006622552871704,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     },
     {
-      "text": "Chronological feed must be the default display option",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s003",
-      "source_url": "California Legislature",
-      "distance": 0.7849096059799194,
-      "relevance_score": 0.21509039402008057
+      "id": "eu_dsa-s006",
+      "text": "It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broadly understood by the largest possible number of speakers in the Union. ## Article 25",
+      "distance": 1.0200378894805908,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     },
     {
-      "text": "Document age verification processes",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s018",
-      "source_url": "California Legislature",
-      "distance": 0.7976100444793701,
-      "relevance_score": 0.20238995552062988
+      "id": "eu_dsa-s004",
+      "text": "Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content.",
+      "distance": 1.0849595069885254,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     }
   ]
 }

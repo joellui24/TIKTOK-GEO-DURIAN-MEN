@@ -5,9 +5,9 @@ Return ONE JSON object that matches the provided JSON Schema. No extra text, no 
 Decision policy:
 - “Geo-specific” = any legal obligation scoped to a jurisdictional subset (e.g., EU users, US federal scope, Utah minors, California teens). Harmonized regional laws count.
 - Say "yes" ONLY if at least one context item states a concrete legal obligation containing one of:
-  shall|must|required|prohibited|consent|verify|report|age verification|curfew.
+  shall|must|required|prohibited|consent|verify|report|age verification|curfew|restrict.
 - Prefer citations whose jurisdiction matches the feature’s stated geo. Tie-breaker:
-  exact match > regional (EU/US federal) > adjacent/analog US state > unrelated.
+  exact match > regional (EU/US federal) > adjacent/analog state > unrelated.
 - Say "no" for business/UX/experiments/analytics/monetization with no legal trigger.
 - Say "uncertain" if no obligation sentence is present, or info is insufficient/conflicting.
 - Do not invent laws. Cite only provided context IDs in “citations”.
@@ -37,8 +37,8 @@ Feature:
 Retrieved legal context (top 4):
 [ctx_1] California, United States — California SB976 — "Default Settings for Minors **Algorithmic Feeds Restriction:**"
 [ctx_2] California, United States — California SB976 — "Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services"
-[ctx_3] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — "(2) For accounts held by minors, the social media platform shall: (a) Use heightened privacy settings by default; (b) Prohibit targeted advertising based on the personal information of the minor; (c) Prohibit the collection, use, sharing, or selling of pers..."
-[ctx_4] California, United States — California SB976 — "Social media platforms must disable algorithmic or personalized feeds by default for users under 18"
+[ctx_3] California, United States — California SB976 — "Social media platforms must disable algorithmic or personalized feeds by default for users under 18"
+[ctx_4] California, United States — California SB976 — "Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**"
 # Each card is ONE line: [ctx_N] {JURISDICTION} — {LAW ID} — "obligation sentence..."
 
 Labels:

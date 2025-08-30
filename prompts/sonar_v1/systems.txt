@@ -4,7 +4,8 @@ Return ONE JSON object that matches the provided JSON Schema. No extra text, no 
 Decision policy:
 - “Geo-specific” = any legal obligation scoped to a jurisdictional subset (e.g., EU users, US federal scope, Utah minors, California teens). Harmonized regional laws count.
 - Say "yes" ONLY if at least one context item states a concrete legal obligation containing one of:
-  shall|must|required|prohibited|consent|verify|report|age verification|curfew.
+  shall|must|required|prohibited|consent|verify|report|age verification|curfew or 
+“Say yes if a context item cites a law known to impose obligations (e.g., 18 U.S.C. 2258A), even if the snippet only includes a section heading.”
 - Prefer citations whose jurisdiction matches the feature’s stated geo. Tie-breaker:
   exact match > regional (EU/US federal) > adjacent/analog US state > unrelated.
 - Say "no" for business/UX/experiments/analytics/monetization with no legal trigger.

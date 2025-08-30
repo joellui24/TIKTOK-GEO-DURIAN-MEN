@@ -1,46 +1,49 @@
 {
+  "used_jurisdiction": "Florida, United States",
+  "explicit_jurisdiction": "",
+  "inferred_jurisdiction": "Florida, United States",
   "cards": [
-    "[ctx_1] California, United States — California SB976 — \"Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**\"",
-    "[ctx_2] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"(2) For accounts held by minors, the social media platform shall: (a) Use heightened privacy settings by default; (b) Prohibit targeted advertising based on the personal information of the minor; (c) Prohibit the collection, use, sharing, or selling of pers...\"",
-    "[ctx_3] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"Content moderation and parental controls (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to: (a) Monitor and control the minor's social media use; (b) View and delete the account and its inf...\"",
-    "[ctx_4] California, United States — California SB976 — \"Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services\""
+    "[ctx_1] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"(2) For accounts held by minors, the social media platform shall: (a) Use heightened privacy settings by default; (b) Prohibit targeted advertising based on the personal information of the minor; (c) Prohibit the collection, use, sharing, or selling of pers...\"",
+    "[ctx_2] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"Content moderation and parental controls (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to: (a) Monitor and control the minor's social media use; (b) View and delete the account and its inf...\"",
+    "[ctx_3] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"(3) A social media platform shall verify the age of account holders and obtain parental consent by using a method that is effective in ensuring that an individual creating a social media account meets the age requirements of this section\"",
+    "[ctx_4] US-FL — Florida House Bill 3 - Social Media Platforms (extract) — \"(2) A social media platform must notify a user before implementing a change to its algorithm that may result in a material change to how content is promoted, suggested, amplified, or suppressed for that user\""
   ],
   "passages": [
     {
-      "text": "Parental consent required to enable personalized feeds for minors **Time-Based Restrictions:**",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s004",
-      "source_url": "California Legislature",
-      "distance": 0.6645447015762329,
-      "relevance_score": 0.3354552984237671
-    },
-    {
+      "id": "us_fl_hb3-s008",
       "text": "(2) For accounts held by minors, the social media platform shall: (a) Use heightened privacy settings by default; (b) Prohibit targeted advertising based on the personal information of the minor; (c) Prohibit the collection, use, sharing, or selling of personal information of the minor for commercial purposes. ## Section 501.2045",
-      "jurisdiction": "US-FL",
-      "law": "Florida House Bill 3 - Social Media Platforms (extract)",
-      "chunk_id": "us_fl_hb3-s008",
-      "source_url": "",
       "distance": 0.6661205291748047,
-      "relevance_score": 0.3338794708251953
-    },
-    {
-      "text": "Content moderation and parental controls (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to: (a) Monitor and control the minor's social media use; (b) View and delete the account and its information, content, and communications; (c) Set time limits and restrict access during certain hours; (d) Receive notifications about the minor's social media activity.",
       "jurisdiction": "US-FL",
       "law": "Florida House Bill 3 - Social Media Platforms (extract)",
-      "chunk_id": "us_fl_hb3-s007",
       "source_url": "",
-      "distance": 0.6765983700752258,
-      "relevance_score": 0.32340162992477417
+      "file": "data/laws/us_fl_hb3.md"
     },
     {
-      "text": "Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s019",
-      "source_url": "California Legislature",
-      "distance": 0.6766752600669861,
-      "relevance_score": 0.3233247399330139
+      "id": "us_fl_hb3-s007",
+      "text": "Content moderation and parental controls (1) A social media platform shall provide robust and easy-to-use parental controls that allow a parent or guardian to: (a) Monitor and control the minor's social media use; (b) View and delete the account and its information, content, and communications; (c) Set time limits and restrict access during certain hours; (d) Receive notifications about the minor's social media activity.",
+      "distance": 0.6765983700752258,
+      "jurisdiction": "US-FL",
+      "law": "Florida House Bill 3 - Social Media Platforms (extract)",
+      "source_url": "",
+      "file": "data/laws/us_fl_hb3.md"
+    },
+    {
+      "id": "us_fl_hb3-s003",
+      "text": "(3) A social media platform shall verify the age of account holders and obtain parental consent by using a method that is effective in ensuring that an individual creating a social media account meets the age requirements of this section. ## Section 501.2042",
+      "distance": 0.7160027027130127,
+      "jurisdiction": "US-FL",
+      "law": "Florida House Bill 3 - Social Media Platforms (extract)",
+      "source_url": "",
+      "file": "data/laws/us_fl_hb3.md"
+    },
+    {
+      "id": "us_fl_hb3-s006",
+      "text": "(2) A social media platform must notify a user before implementing a change to its algorithm that may result in a material change to how content is promoted, suggested, amplified, or suppressed for that user. ## Section 501.2044",
+      "distance": 0.7237883806228638,
+      "jurisdiction": "US-FL",
+      "law": "Florida House Bill 3 - Social Media Platforms (extract)",
+      "source_url": "",
+      "file": "data/laws/us_fl_hb3.md"
     }
   ]
 }

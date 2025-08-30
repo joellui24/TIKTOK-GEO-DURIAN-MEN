@@ -1,4 +1,7 @@
 {
+  "used_jurisdiction": "United States",
+  "explicit_jurisdiction": "",
+  "inferred_jurisdiction": "United States",
   "cards": [
     "[ctx_1] California, United States — California SB976 — \"Reporting mechanisms for inappropriate content exposure ### Section 22677\"",
     "[ctx_2] US — 18 U.S.C. 2258A - Reporting requirements of providers — \"(2) Database\"",
@@ -7,40 +10,40 @@
   ],
   "passages": [
     {
+      "id": "us_ca_sb976-s010",
       "text": "Reporting mechanisms for inappropriate content exposure ### Section 22677",
+      "distance": 0.5783243775367737,
       "jurisdiction": "California, United States",
       "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s010",
       "source_url": "California Legislature",
-      "distance": 0.5783243775367737,
-      "relevance_score": 0.4216756224632263
+      "file": "data/laws/us_ca_sb976.md"
     },
     {
+      "id": "us_18usc_2258a-s004",
       "text": "(2) Database.\u0014Reports made to the CyberTipline of the National Center for Missing & Exploited Children shall be entered into a database that shall be maintained by the National Center for Missing & Exploited Children.",
+      "distance": 0.6580438613891602,
       "jurisdiction": "US",
       "law": "18 U.S.C. 2258A - Reporting requirements of providers",
-      "chunk_id": "us_18usc_2258a-s004",
       "source_url": "",
-      "distance": 0.6580438613891602,
-      "relevance_score": 0.34195613861083984
+      "file": "data/laws/us_18usc_2258a.md"
     },
     {
+      "id": "us_ca_sb976-s019",
       "text": "Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.",
+      "distance": 0.7057637572288513,
       "jurisdiction": "California, United States",
       "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s019",
       "source_url": "California Legislature",
-      "distance": 0.7057637572288513,
-      "relevance_score": 0.2942362427711487
+      "file": "data/laws/us_ca_sb976.md"
     },
     {
+      "id": "us_ut_social_media_act-s019",
       "text": "Continuous monitoring and reporting",
+      "distance": 0.7164928317070007,
       "jurisdiction": "Utah, United States",
       "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s019",
       "source_url": "Utah State Legislature",
-      "distance": 0.7164928317070007,
-      "relevance_score": 0.28350716829299927
+      "file": "data/laws/us_ut_social_media_act.md"
     }
   ]
 }

@@ -1,46 +1,49 @@
 {
+  "used_jurisdiction": "European Union",
+  "explicit_jurisdiction": "",
+  "inferred_jurisdiction": "European Union",
   "cards": [
-    "[ctx_1] Utah, United States — Utah Code §13-2c-301 et seq. — \"Continuous monitoring and reporting\"",
-    "[ctx_2] California, United States — California SB976 — \"Document age verification processes\"",
-    "[ctx_3] California, United States — California SB976 — \"Multiple verification touchpoints throughout user journey **Compliance Reporting:**\"",
-    "[ctx_4] California, United States — California SB976 — \"Platforms must provide time management tools for minor users\""
+    "[ctx_1] EU — Digital Services Act (extract) — \"Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to mo...\"",
+    "[ctx_2] EU — Digital Services Act (extract) — \"Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the w...\"",
+    "[ctx_3] EU — Digital Services Act (extract) — \"It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broad...\"",
+    "[ctx_4] EU — Digital Services Act (extract) — \"Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content\""
   ],
   "passages": [
     {
-      "text": "Continuous monitoring and reporting",
-      "jurisdiction": "Utah, United States",
-      "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s019",
-      "source_url": "Utah State Legislature",
-      "distance": 0.6732496023178101,
-      "relevance_score": 0.32675039768218994
+      "id": "eu_dsa-s002",
+      "text": "Providers of online platforms that use recommender systems shall set out in their terms and conditions, in plain and intelligible language, the main parameters used in their recommender systems, as well as any options for the recipients of the service to modify or influence those main parameters. ## Article 35",
+      "distance": 0.9594322443008423,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     },
     {
-      "text": "Document age verification processes",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s018",
-      "source_url": "California Legislature",
-      "distance": 0.7060600519180298,
-      "relevance_score": 0.2939399480819702
+      "id": "eu_dsa-s001",
+      "text": "Providers of very large online platforms and very large online search engines shall diligently identify, analyse and assess any systemic risks stemming from the functioning and use of their service in the Union, that may arise, in particular: (a) from the way in which their algorithmic systems amplify certain risks, such as:",
+      "distance": 0.9908098578453064,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     },
     {
-      "text": "Multiple verification touchpoints throughout user journey **Compliance Reporting:**",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s013",
-      "source_url": "California Legislature",
-      "distance": 0.7323497533798218,
-      "relevance_score": 0.2676502466201782
+      "id": "eu_dsa-s006",
+      "text": "It shall be accessible and visible on the providers' online interface and allow for the submission of notices in at least one of the official languages of the Member State in which the provider is established and in at least one other language that is broadly understood by the largest possible number of speakers in the Union. ## Article 25",
+      "distance": 0.998544454574585,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     },
     {
-      "text": "Platforms must provide time management tools for minor users",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s005",
-      "source_url": "California Legislature",
-      "distance": 0.7494955062866211,
-      "relevance_score": 0.2505044937133789
+      "id": "eu_dsa-s004",
+      "text": "Providers of hosting services shall put in place mechanisms that allow any individual or entity to notify them of the presence on their service of specific items of information that the individual or entity considers to be illegal content.",
+      "distance": 1.0191104412078857,
+      "jurisdiction": "EU",
+      "law": "Digital Services Act (extract)",
+      "source_url": "",
+      "file": "data/laws/eu_dsa.md"
     }
   ]
 }

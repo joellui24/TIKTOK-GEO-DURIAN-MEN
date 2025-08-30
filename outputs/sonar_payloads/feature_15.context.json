@@ -1,4 +1,7 @@
 {
+  "used_jurisdiction": "Canada",
+  "explicit_jurisdiction": "",
+  "inferred_jurisdiction": "Canada",
   "cards": [
     "[ctx_1] California, United States — California SB976 — \"Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services\"",
     "[ctx_2] Utah, United States — Utah Code §13-2c-301 et seq. — \"Border region user verification protocols **Technical Requirements:**\"",
@@ -7,40 +10,40 @@
   ],
   "passages": [
     {
+      "id": "us_ca_sb976-s019",
       "text": "Track parental consent and control usage This law specifically targets social media platforms operating in California and requires geo-specific implementation to ensure minors in California receive enhanced protections while accessing social media services.",
-      "jurisdiction": "California, United States",
-      "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s019",
-      "source_url": "California Legislature",
       "distance": 0.8557386994361877,
-      "relevance_score": 0.14426130056381226
-    },
-    {
-      "text": "Border region user verification protocols **Technical Requirements:**",
-      "jurisdiction": "Utah, United States",
-      "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s011",
-      "source_url": "Utah State Legislature",
-      "distance": 0.8977946639060974,
-      "relevance_score": 0.10220533609390259
-    },
-    {
-      "text": "Reporting mechanisms for inappropriate content exposure ### Section 22677",
       "jurisdiction": "California, United States",
       "law": "California SB976",
-      "chunk_id": "us_ca_sb976-s010",
       "source_url": "California Legislature",
-      "distance": 0.9279298186302185,
-      "relevance_score": 0.0720701813697815
+      "file": "data/laws/us_ca_sb976.md"
     },
     {
-      "text": "Minor Access Restrictions **Curfew Requirements:**",
+      "id": "us_ut_social_media_act-s011",
+      "text": "Border region user verification protocols **Technical Requirements:**",
+      "distance": 0.8977946639060974,
       "jurisdiction": "Utah, United States",
       "law": "Utah Code §13-2c-301 et seq.",
-      "chunk_id": "us_ut_social_media_act-s001",
       "source_url": "Utah State Legislature",
+      "file": "data/laws/us_ut_social_media_act.md"
+    },
+    {
+      "id": "us_ca_sb976-s010",
+      "text": "Reporting mechanisms for inappropriate content exposure ### Section 22677",
+      "distance": 0.9279298186302185,
+      "jurisdiction": "California, United States",
+      "law": "California SB976",
+      "source_url": "California Legislature",
+      "file": "data/laws/us_ca_sb976.md"
+    },
+    {
+      "id": "us_ut_social_media_act-s001",
+      "text": "Minor Access Restrictions **Curfew Requirements:**",
       "distance": 0.9284074902534485,
-      "relevance_score": 0.07159250974655151
+      "jurisdiction": "Utah, United States",
+      "law": "Utah Code §13-2c-301 et seq.",
+      "source_url": "Utah State Legislature",
+      "file": "data/laws/us_ut_social_media_act.md"
     }
   ]
 }

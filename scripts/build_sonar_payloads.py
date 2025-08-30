@@ -2,49 +2,44 @@
 # -*- coding: utf-8 -*-
 
 """
-Build Sonar payloads from a JSON file of features, with retrieval.
+Build Sonar payloads from a JSON file of features, with jurisdiction auto-detect + retrieval.
 
 Usage:
   python -m scripts.build_sonar_payloads \
     --features data/triaged_15_features2.json \
     --outdir outputs/sonar_payloads \
     --k 4 \
-    --fewshots prompts/fewshots.md
+    [--fewshots prompts/fewshots.md] \
+    [--no-auto-jurisdiction]
 
 What it does:
-- Loads features (list of {feature_id, feature_name, feature_description}).
-- Uses FastEmbed + Chroma (collection="laws") to retrieve top-k legal passages per feature.
-- Formats passages into one-line context cards: [ctx_N] JURIS — LAW — "obligation sentence..."
-- Assembles Sonar request payloads (system + optional few-shots + user task + schema).
-- Writes {feature_id}.json (API-ready) and {feature_id}.chat.txt (human-readable).
+- Loads features (list of {feature_id, feature_name, feature_description, [jurisdiction]?}).
+- If no jurisdiction is provided, auto-detects from title/description (Utah/California/Florida/US/EU/UK/CA/AU, etc.).
+- Uses index/retriever.py to retrieve top-k *obligation* sentences, prioritizing the inferred jurisdiction.
+- Formats context cards and assembles a Sonar-ready JSON payload + human-readable chat + debug context.
 """
 
-import os
+from __future__ import annotations
+
 import json
 import argparse
 from pathlib import Path
 from typing import Dict, List, Tuple
+import re
 
-import numpy as np
-import chromadb
-from fastembed import TextEmbedding
+# ---------- Retrieval (jurisdiction-first) ----------
+from index.retriever import LawRetriever  # make sure index/retriever.py exists
 
-# ---------- Paths & config ----------
-ROOT = Path(__file__).resolve().parents[1]
-INDEX_DIR = ROOT / "data" / "index" / "chroma"
-EMBED_MODEL = "BAAI/bge-small-en-v1.5"
-COLLECTION_NAME = "laws"
-
-# ---------- Prompts (align with llm_classifier.py) ----------
+# ---------- Prompts ----------
 SYSTEM_POLICY = """You are a compliance triage assistant for geo-specific regulation.
 Return ONE JSON object that matches the provided JSON Schema. No extra text, no markdown.
 
 Decision policy:
 - “Geo-specific” = any legal obligation scoped to a jurisdictional subset (e.g., EU users, US federal scope, Utah minors, California teens). Harmonized regional laws count.
 - Say "yes" ONLY if at least one context item states a concrete legal obligation containing one of:
-  shall|must|required|prohibited|consent|verify|report|age verification|curfew.
+  shall|must|required|prohibited|consent|verify|report|age verification|curfew|restrict.
 - Prefer citations whose jurisdiction matches the feature’s stated geo. Tie-breaker:
-  exact match > regional (EU/US federal) > adjacent/analog US state > unrelated.
+  exact match > regional (EU/US federal) > adjacent/analog state > unrelated.
 - Say "no" for business/UX/experiments/analytics/monetization with no legal trigger.
 - Say "uncertain" if no obligation sentence is present, or info is insufficient/conflicting.
 - Do not invent laws. Cite only provided context IDs in “citations”.
@@ -97,67 +92,101 @@ RESPONSE_SCHEMA_INLINE = {
     "additionalProperties": False
 }
 
-# ---------- Retrieval helpers ----------
+# ---------- Jurisdiction inference ----------
+STATE_WORDS = {
+    "utah": "Utah, United States",
+    "california": "California, United States",
+    "florida": "Florida, United States",
+    "new york": "New York, United States",
+    "texas": "Texas, United States",
+}
 
-def ensure_index() -> chromadb.Collection:
-    """
-    Connect to Chroma persistent index and return the 'laws' collection.
-    If it doesn't exist, attempt to build it by importing index/build.py.
-    """
-    client = chromadb.PersistentClient(path=str(INDEX_DIR))
-    try:
-        return client.get_collection(COLLECTION_NAME)
-    except Exception as e:
-        if "does not exist" in str(e).lower() or "not found" in str(e).lower():
-            print("🔧 Vector index not found. Building automatically...")
-            try:
-                import sys
-                sys.path.append(str(ROOT / "index"))
-                from build import build_index
-                build_index()
-                print("✅ Vector index built successfully!")
-                return client.get_collection(COLLECTION_NAME)
-            except Exception as be:
-                raise RuntimeError(f"Failed to build vector index: {be}") from be
-        raise
+COUNTRY_WORDS = {
+    "canada": "Canada",
+    "australia": "Australia",
+    "united kingdom": "United Kingdom",
+    "uk": "United Kingdom",
+    "united states": "United States",
+    "us federal": "United States",
+    "usa": "United States",
+    "us ": "United States",
+}
 
-def embed_query(embedding_model: TextEmbedding, text: str) -> List[float]:
-    vec = list(embedding_model.embed([text]))[0]
-    return np.asarray(vec, dtype=np.float32).tolist()
+REGION_WORDS = {
+    "european union": "European Union",
+    " eu ": "European Union",
+    "eu dsa": "European Union",
+    "digital services act": "European Union",
+    "gdpr": "European Union",
+}
 
-def retrieve_passages(collection: chromadb.Collection, query_vec: List[float], k: int) -> List[Dict]:
-    res = collection.query(
-        query_embeddings=[query_vec],
-        n_results=max(k, 1),
-        include=["documents", "metadatas", "distances"]
-    )
-    docs = res.get("documents", [[]])[0]
-    metas = res.get("metadatas", [[]])[0]
-    dists = res.get("distances", [[]])[0]
+LAW_CUES = [
+    # California
+    (r"\bsb\s*976\b", "California, United States"),
+    (r"\bcalifornia\b", "California, United States"),
+    # Utah
+    (r"\butah\b", "Utah, United States"),
+    (r"\bsocial\s+media\s+regulation\s+act\b", "Utah, United States"),
+    # Florida
+    (r"\bflorida\b", "Florida, United States"),
+    # US federal / child safety
+    (r"\bncmec\b", "United States"),
+    (r"\bcopp?a\b", "United States"),
+    (r"\bcsam\b", "United States"),
+    (r"\bus federal\b", "United States"),
+    # EU
+    (r"\bdigital\s+services\s+act\b", "European Union"),
+    (r"\beu\s*dsa\b", "European Union"),
+    (r"\bgdpr\b", "European Union"),
+    (r"\beuropean\s+union\b", "European Union"),
+    # Canada
+    (r"\bcanada\b", "Canada"),
+    # UK
+    (r"\bofcom\b", "United Kingdom"),
+    (r"\buk\b", "United Kingdom"),
+    # Australia
+    (r"\baustralia\b", "Australia"),
+]
 
-    out: List[Dict] = []
-    for i in range(len(docs)):
-        meta = metas[i] if i < len(metas) else {}
-        out.append({
-            "text": docs[i],
-            "jurisdiction": meta.get("jurisdiction", "") or "UNKNOWN",
-            "law": meta.get("law", "") or "UNKNOWN LAW",
-            "chunk_id": meta.get("chunk_id", f"chunk_{i}"),
-            "source_url": meta.get("source_url", ""),
-            "distance": float(dists[i]) if i < len(dists) else None,
-            "relevance_score": (1.0 - float(dists[i])) if i < len(dists) else None
-        })
-    return out
+def infer_jurisdiction(title: str, desc: str) -> str:
+    """Heuristic inference from free text; returns a single best jurisdiction string."""
+    text = f" {title} {desc} ".lower()
 
+    # 1) High-precision law cues
+    for patt, juris in LAW_CUES:
+        if re.search(patt, text):
+            return juris
+
+    # 2) Explicit state names
+    for token, juris in STATE_WORDS.items():
+        if token in text:
+            return juris
+
+    # 3) Explicit region cues (EU first)
+    for token, juris in REGION_WORDS.items():
+        if token in text:
+            return juris
+
+    # 4) Country cues
+    for token, juris in COUNTRY_WORDS.items():
+        if token in text:
+            return juris
+
+    # 5) Ambiguous "CA": prefer Canada ONLY if "Canada" appears elsewhere; else California when 'SB' present
+    if " ca " in text or text.strip().endswith(" ca"):
+        if "canada" in text:
+            return "Canada"
+        if re.search(r"\bsb\s*\d{2,4}\b", text):
+            return "California, United States"
+
+    # Default fallback
+    return "European Union"
+
+# ---------- Formatting ----------
 def to_context_cards(passages: List[Dict]) -> List[str]:
-    """
-    Convert retrieved passages into one-sentence context cards.
-    Keep first sentence; trim to ~260 chars to reduce drift.
-    """
     cards: List[str] = []
     for idx, p in enumerate(passages, 1):
         text = (p.get("text") or "").strip()
-        # Heuristic: first sentence
         sent = text.split(".")[0].strip()
         if len(sent) > 260:
             sent = sent[:257] + "..."
@@ -166,15 +195,13 @@ def to_context_cards(passages: List[Dict]) -> List[str]:
         cards.append(f'[ctx_{idx}] {juris} — {law} — "{sent}"')
     return cards
 
-# ---------- Few-shots loader ----------
-
+# ---------- Few-shots ----------
 def load_fewshots(path: str | None) -> str:
     if not path:
         return ""
     p = Path(path)
     if not p.exists():
         raise FileNotFoundError(f"Few-shots file not found: {path}")
-    # accept md/txt/json; if json is list or {"blocks":[...]} join with blank lines
     if p.suffix.lower() == ".json":
         data = json.loads(p.read_text())
         blocks = data["blocks"] if isinstance(data, dict) and "blocks" in data else data
@@ -184,11 +211,10 @@ def load_fewshots(path: str | None) -> str:
     return p.read_text().strip()
 
 # ---------- Payload assembly ----------
-
-def build_payload(feature: Dict, cards: List[str], fewshots: str) -> Tuple[Dict, List[Dict], str]:
+def build_payload(feature: Dict, cards: List[str], fewshots: str) -> Tuple[Dict, str]:
     user_msg = USER_TASK_TMPL.format(
-        title=feature["feature_name"],
-        description=feature["feature_description"],
+        title=feature.get("feature_name", ""),
+        description=feature.get("feature_description", ""),
         k=len(cards),
         context_cards="\n".join(cards)
     )
@@ -210,49 +236,52 @@ def build_payload(feature: Dict, cards: List[str], fewshots: str) -> Tuple[Dict,
             "json_schema": {"schema": RESPONSE_SCHEMA_INLINE}
         }
     }
-    # For convenience, also return a compact “debug” structure of raw passages (not sent to Sonar)
-    debug_passages = [{"jurisdiction": p["jurisdiction"], "law": p["law"],
-                       "chunk_id": p["chunk_id"], "relevance": p["relevance_score"]} for p in cards_raw]
-    return payload, debug_passages, user_msg  # cards_raw is defined in main before calling
+    return payload, user_msg
 
 # ---------- Main ----------
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--features", required=True, help="Path to features JSON file")
     ap.add_argument("--outdir", default="outputs/sonar_payloads", help="Output directory")
     ap.add_argument("--fewshots", default="", help="Optional path to few-shots (md/txt/json)")
     ap.add_argument("--k", type=int, default=4, help="Top-K passages to include per feature")
+    ap.add_argument("--no-auto-jurisdiction", action="store_true",
+                    help="Disable auto-detection; only use feature['jurisdiction'] or fallback to EU")
+    ap.add_argument("--fallback-jurisdiction", default="European Union",
+                    help="Used if neither explicit nor inferred jurisdiction is available")
     args = ap.parse_args()
 
-    features = json.loads(Path(args.features).read_text())
+    features_obj = json.loads(Path(args.features).read_text())
+    features: List[Dict] = features_obj["features"] if isinstance(features_obj, dict) and "features" in features_obj else features_obj
+
     outdir = Path(args.outdir); outdir.mkdir(parents=True, exist_ok=True)
     fewshots_text = load_fewshots(args.fewshots)
 
-    # Init retrieval stack
-    embedding = TextEmbedding(model_name=EMBED_MODEL)
-    collection = ensure_index()
+    retriever = LawRetriever()
 
     for feat in features:
-        feat_id = feat.get("feature_id") or "FEAT"
+        feat_id = feat.get("feature_id") or feat.get("id") or "FEAT"
         title = feat.get("feature_name", "")
         desc = feat.get("feature_description", "")
-        query_text = f"{title}\n\n{desc}".strip()
 
-        # Embed + retrieve
-        qvec = embed_query(embedding, query_text)
-        passages = retrieve_passages(collection, qvec, k=args.k)
+        explicit = (feat.get("jurisdiction") or "").strip()
+        inferred = ""
+        if not args.no_auto_jurisdiction and not explicit:
+            inferred = infer_jurisdiction(title, desc)
+        juris = explicit or inferred or args.fallback_jurisdiction
 
-        # Build cards
+        print(f"🔎 [{feat_id}] jurisdiction -> explicit='{explicit or '-'}' | inferred='{inferred or '-'}' | using='{juris}'")
+
+        passages = retriever.search(
+            feature_title=title,
+            feature_description=desc,
+            feature_jurisdiction=juris,
+            k=args.k
+        )
+
         cards = to_context_cards(passages)[:args.k]
+        payload, chat_txt = build_payload(feat, cards, fewshots_text)
 
-        # Build payload
-        # NOTE: to include a minimal debug map of passages back out, we capture passages as cards_raw here
-        global cards_raw
-        cards_raw = passages  # used inside build_payload for the debug list
-        payload, debug_passages, chat_txt = build_payload(feat, cards, fewshots_text)
-
-        # Write artifacts
         out_json = outdir / f"{feat_id}.json"
         out_chat = outdir / f"{feat_id}.chat.txt"
         out_ctx  = outdir / f"{feat_id}.context.json"
@@ -261,7 +290,13 @@ def main():
         with out_chat.open("w", encoding="utf-8") as f:
             for m in payload["messages"]:
                 f.write(f"[{m['role'].upper()}]\n{m['content']}\n\n")
-        out_ctx.write_text(json.dumps({"cards": cards, "passages": passages}, ensure_ascii=False, indent=2))
+        out_ctx.write_text(json.dumps({
+            "used_jurisdiction": juris,
+            "explicit_jurisdiction": explicit,
+            "inferred_jurisdiction": inferred,
+            "cards": cards,
+            "passages": passages
+        }, ensure_ascii=False, indent=2))
 
         print(f"✅ wrote {out_json.name}, {out_chat.name}, {out_ctx.name} -> {outdir}")
 
@@ -269,3 +304,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
